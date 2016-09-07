@@ -10,6 +10,10 @@
 		475354841D7DAFA700997B52 /* WB_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475354831D7DAFA700997B52 /* WB_MainViewController.swift */; };
 		475354861D7DAFCE00997B52 /* WB_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475354851D7DAFCE00997B52 /* WB_NavigationController.swift */; };
 		475354891D7DB00000997B52 /* WB_BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475354881D7DB00000997B52 /* WB_BaseViewController.swift */; };
+		47B1CDC61D806C37009DA77D /* WB_HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1CDC51D806C37009DA77D /* WB_HomeViewController.swift */; };
+		47B1CDC81D806C3F009DA77D /* WB_MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1CDC71D806C3F009DA77D /* WB_MessageViewController.swift */; };
+		47B1CDCA1D806C46009DA77D /* WB_DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1CDC91D806C46009DA77D /* WB_DiscoverViewController.swift */; };
+		47B1CDCC1D806C4C009DA77D /* WB_ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47B1CDCB1D806C4C009DA77D /* WB_ProfileViewController.swift */; };
 		47FB57C51D56F0A300BCBF41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FB57C41D56F0A300BCBF41 /* AppDelegate.swift */; };
 		47FB57CA1D56F0A300BCBF41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47FB57C81D56F0A300BCBF41 /* Main.storyboard */; };
 		47FB57CC1D56F0A300BCBF41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47FB57CB1D56F0A300BCBF41 /* Assets.xcassets */; };
@@ -20,7 +24,12 @@
 		475354831D7DAFA700997B52 /* WB_MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_MainViewController.swift; sourceTree = "<group>"; };
 		475354851D7DAFCE00997B52 /* WB_NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_NavigationController.swift; sourceTree = "<group>"; };
 		475354881D7DB00000997B52 /* WB_BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_BaseViewController.swift; sourceTree = "<group>"; };
-		47FB57C11D56F0A300BCBF41 /* Swift3.0-WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift3.0-WeiBo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4753548A1D7DB22600997B52 /* WeiBo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeiBo-Bridge.h"; sourceTree = "<group>"; };
+		47B1CDC51D806C37009DA77D /* WB_HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_HomeViewController.swift; sourceTree = "<group>"; };
+		47B1CDC71D806C3F009DA77D /* WB_MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_MessageViewController.swift; sourceTree = "<group>"; };
+		47B1CDC91D806C46009DA77D /* WB_DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_DiscoverViewController.swift; sourceTree = "<group>"; };
+		47B1CDCB1D806C4C009DA77D /* WB_ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_ProfileViewController.swift; sourceTree = "<group>"; };
+		47FB57C11D56F0A300BCBF41 /* WeiBo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeiBo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		47FB57C41D56F0A300BCBF41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		47FB57C91D56F0A300BCBF41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		47FB57CB1D56F0A300BCBF41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -60,6 +69,7 @@
 		4753547B1D7DAF5A00997B52 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				4753548A1D7DB22600997B52 /* WeiBo-Bridge.h */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -80,6 +90,7 @@
 		4753547D1D7DAF5A00997B52 /* Discover */ = {
 			isa = PBXGroup;
 			children = (
+				47B1CDC91D806C46009DA77D /* WB_DiscoverViewController.swift */,
 			);
 			path = Discover;
 			sourceTree = "<group>";
@@ -87,6 +98,7 @@
 		4753547E1D7DAF5A00997B52 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				47B1CDC51D806C37009DA77D /* WB_HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -103,6 +115,7 @@
 		475354801D7DAF5A00997B52 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				47B1CDC71D806C3F009DA77D /* WB_MessageViewController.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -110,6 +123,7 @@
 		475354811D7DAF5A00997B52 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				47B1CDCB1D806C4C009DA77D /* WB_ProfileViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -140,7 +154,7 @@
 		47FB57C21D56F0A300BCBF41 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				47FB57C11D56F0A300BCBF41 /* Swift3.0-WeiBo.app */,
+				47FB57C11D56F0A300BCBF41 /* WeiBo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -175,7 +189,7 @@
 			);
 			name = "Swift3.0-WeiBo";
 			productName = "Swift3.0-WeiBo";
-			productReference = 47FB57C11D56F0A300BCBF41 /* Swift3.0-WeiBo.app */;
+			productReference = 47FB57C11D56F0A300BCBF41 /* WeiBo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -232,10 +246,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47B1CDCA1D806C46009DA77D /* WB_DiscoverViewController.swift in Sources */,
+				47B1CDCC1D806C4C009DA77D /* WB_ProfileViewController.swift in Sources */,
 				475354861D7DAFCE00997B52 /* WB_NavigationController.swift in Sources */,
 				475354841D7DAFA700997B52 /* WB_MainViewController.swift in Sources */,
 				475354891D7DB00000997B52 /* WB_BaseViewController.swift in Sources */,
+				47B1CDC81D806C3F009DA77D /* WB_MessageViewController.swift in Sources */,
 				47FB57C51D56F0A300BCBF41 /* AppDelegate.swift in Sources */,
+				47B1CDC61D806C37009DA77D /* WB_HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,7 +378,8 @@
 				INFOPLIST_FILE = "Swift3.0-WeiBo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.X-LiangIdeaHouse.Swift3-0-WeiBo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WeiBo;
+				SWIFT_OBJC_BRIDGING_HEADER = "Swift3.0-WeiBo/Class/Tools/WeiBo-Bridge.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -373,7 +392,8 @@
 				INFOPLIST_FILE = "Swift3.0-WeiBo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.X-LiangIdeaHouse.Swift3-0-WeiBo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = WeiBo;
+				SWIFT_OBJC_BRIDGING_HEADER = "Swift3.0-WeiBo/Class/Tools/WeiBo-Bridge.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
