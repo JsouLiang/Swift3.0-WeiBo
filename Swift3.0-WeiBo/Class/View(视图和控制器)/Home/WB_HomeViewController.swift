@@ -8,11 +8,10 @@
 
 import UIKit
 
-class WB_HomeViewController: UIViewController {
+class WB_HomeViewController: WB_BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
     }
 
     @objc private func handleAddFriendAction(barButtonItem: UIBarButtonItem) -> Void {
@@ -22,8 +21,9 @@ class WB_HomeViewController: UIViewController {
 }
 
 extension WB_HomeViewController {
-    private func setupUI() {
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友",
+    override func setupUI() {
+        super.setupUI()
+        navigationBarItem.leftBarButtonItem = UIBarButtonItem(title: "好友",
                                                            target: self,
                                                            selected: #selector(WB_HomeViewController.handleAddFriendAction(barButtonItem:)))
     }

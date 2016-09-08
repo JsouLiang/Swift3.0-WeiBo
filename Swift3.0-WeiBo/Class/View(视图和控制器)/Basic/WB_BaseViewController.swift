@@ -9,27 +9,37 @@
 import UIKit
 
 class WB_BaseViewController: UIViewController {
-
+    
+    /// 自定义导航条 View
+    lazy var navigationBar: UINavigationBar = { [weak self] () -> UINavigationBar in
+        let navigationBar = UINavigationBar(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: 64))
+        navigationBar.items = [(self?.navigationBarItem)!]
+        return navigationBar
+    }()
+    
+    /// 自定义导航数据 Model
+    lazy var navigationBarItem: UINavigationItem = { () -> UINavigationItem in
+        let navigationBarItem = UINavigationItem()
+        return navigationBarItem
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupUI()
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension WB_BaseViewController {
+    public func setupUI() -> Void {
+        navigationController?.navigationBar.isHidden = true
+        self.view.addSubview(navigationBar)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    /// 重写设置 title 方法, 将传递的 title 数据赋值到自定义的 navigationItem -> navigationBar
+    override var title: String? {
+        didSet {
+            self.navigationBarItem.title = title
+        }
     }
-    */
-
+    
 }
