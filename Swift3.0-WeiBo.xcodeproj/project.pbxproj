@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47080F641D819CE3003183BE /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47080F631D819CE3003183BE /* UIBarButtonItem+Extension.swift */; };
 		475354841D7DAFA700997B52 /* WB_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475354831D7DAFA700997B52 /* WB_MainViewController.swift */; };
 		475354861D7DAFCE00997B52 /* WB_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475354851D7DAFCE00997B52 /* WB_NavigationController.swift */; };
 		475354891D7DB00000997B52 /* WB_BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475354881D7DB00000997B52 /* WB_BaseViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		47080F631D819CE3003183BE /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
 		475354831D7DAFA700997B52 /* WB_MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_MainViewController.swift; sourceTree = "<group>"; };
 		475354851D7DAFCE00997B52 /* WB_NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_NavigationController.swift; sourceTree = "<group>"; };
 		475354881D7DB00000997B52 /* WB_BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_BaseViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				4753548A1D7DB22600997B52 /* WeiBo-Bridge.h */,
+				47080F631D819CE3003183BE /* UIBarButtonItem+Extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				475354891D7DB00000997B52 /* WB_BaseViewController.swift in Sources */,
 				47B1CDC81D806C3F009DA77D /* WB_MessageViewController.swift in Sources */,
 				47FB57C51D56F0A300BCBF41 /* AppDelegate.swift in Sources */,
+				47080F641D819CE3003183BE /* UIBarButtonItem+Extension.swift in Sources */,
 				47B1CDC61D806C37009DA77D /* WB_HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

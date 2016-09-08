@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "47FB57C01D56F0A300BCBF41"
-               BuildableName = "Swift3.0-WeiBo.app"
+               BuildableName = "WeiBo.app"
                BlueprintName = "Swift3.0-WeiBo"
                ReferencedContainer = "container:Swift3.0-WeiBo.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "47FB57C01D56F0A300BCBF41"
-            BuildableName = "Swift3.0-WeiBo.app"
+            BuildableName = "WeiBo.app"
             BlueprintName = "Swift3.0-WeiBo"
             ReferencedContainer = "container:Swift3.0-WeiBo.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "47FB57C01D56F0A300BCBF41"
-            BuildableName = "Swift3.0-WeiBo.app"
+            BuildableName = "WeiBo.app"
             BlueprintName = "Swift3.0-WeiBo"
             ReferencedContainer = "container:Swift3.0-WeiBo.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "47FB57C01D56F0A300BCBF41"
-            BuildableName = "Swift3.0-WeiBo.app"
+            BuildableName = "WeiBo.app"
             BlueprintName = "Swift3.0-WeiBo"
             ReferencedContainer = "container:Swift3.0-WeiBo.xcodeproj">
          </BuildableReference>

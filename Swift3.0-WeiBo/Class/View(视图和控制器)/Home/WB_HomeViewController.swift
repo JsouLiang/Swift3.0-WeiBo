@@ -12,24 +12,19 @@ class WB_HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        setupUI()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @objc private func handleAddFriendAction(barButtonItem: UIBarButtonItem) -> Void {
+        
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension WB_HomeViewController {
+    private func setupUI() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友",
+                                                           target: self,
+                                                           selected: #selector(WB_HomeViewController.handleAddFriendAction(barButtonItem:)))
     }
-    */
-
 }

@@ -10,27 +10,53 @@ import UIKit
 
 class WB_MainViewController: UITabBarController {
 
+    private lazy var composeButton: UIButton = { () -> UIButton
+        in
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(named: "tabbar_compose_button"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "tabbar_compose_button_highlighted"), for: .highlighted)
+        button.setImage(#imageLiteral(resourceName: "tabbar_compose_icon_add"), for: .normal)
+        return button
+    }()
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-            setUpChildViewController()
-        }
+        setUpChildViewController()
+        setupComposeButton()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @objc private func handleComposeAction(composeButton: UIButton) -> Void {
+        
     }
 }
 
 // extension 中不能定义属性，只能定义方法
 extension WB_MainViewController {
     
+    /// 添加加号按钮
+    private func setupComposeButton() {
+        tabBar.addSubview(composeButton)
+        // 设置加号按钮 frame
+        let count: CGFloat = CGFloat(childViewControllers.count)
+        let width = tabBar.bounds.width / count - 1
+        composeButton.frame = tabBar.bounds.insetBy(dx: 2 * width, dy: 0)
+        composeButton.addTarget(self, action: #selector(WB_MainViewController.handleComposeAction(composeButton:)), for: .touchUpInside)
+    }
+    
     /// 设置所有子控制器
     private func setUpChildViewController() {
         let childViewControllerInfos = [
-            ["className": "WB_HomeViewController", "title": "首页", "imageName": ""],
-            ["className": "WB_MessageViewController", "title": "消息", "imageName": ""],
-            ["className": "WB_DiscoverViewController", "title": "发现", "imageName": ""],
-            ["className": "WB_ProfileViewController", "title": "我", "imageName": ""],
+            ["className": "WB_HomeViewController", "title": "首页", "imageName": "home"],
+            ["className": "WB_MessageViewController", "title": "消息", "imageName": "message_center"],
+            ["className": "", "title": "", "imageName": ""],
+            ["className": "WB_DiscoverViewController", "title": "发现", "imageName": "discover"],
+            ["className": "WB_ProfileViewController", "title": "我", "imageName": "profile"],
             ]
         
         let childViewControllers = childViewControllerInfos.map { (info: Dictionary) -> UIViewController in
@@ -59,7 +85,12 @@ extension WB_MainViewController {
         // 创建视图控制器
         let viewController =  cls.init()
         viewController.title = title
-        viewController.tabBarItem.image = UIImage(named: imageName)
+        viewController.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
+        viewController.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_selected")
+        
+        // 设置 TabBar 字体
+        viewController.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.orange], for: .highlighted)
+        
         let nav = WB_NavigationController(rootViewController: viewController)
         return nav
     }
