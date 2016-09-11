@@ -20,12 +20,20 @@ class WB_MainViewController: UITabBarController {
     }()
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         setUpChildViewController()
         setupComposeButton()
     }
 
+    
+    /// portraint: 竖屏, 肖像模式
+    /// landspace: 横屏, 风景模式
+    /// 在需要横屏的时候可以单独处理, 当设置好方向后, 其控制器, 子控制器都会使用设置好的方向
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

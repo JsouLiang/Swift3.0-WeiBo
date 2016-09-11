@@ -23,8 +23,6 @@ class WB_HomeViewController: WB_BaseViewController {
 extension WB_HomeViewController {
     override func setupUI() {
         super.setupUI()
-        navigationBarItem.leftBarButtonItem = UIBarButtonItem(title: "好友",
-                                                           target: self,
-                                                           selected: #selector(WB_HomeViewController.handleAddFriendAction(barButtonItem:)))
+        navigationBarItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, selected: #selector(WB_HomeViewController.handleAddFriendAction(barButtonItem:)))
     }
 }

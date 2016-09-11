@@ -19,18 +19,28 @@ extension UIBarButtonItem {
     /// - parameter highlightdTextColor: 正常状态下高亮颜色(默认橙色)
     /// - parameter target:              操作目标
     /// - parameter selected:            操作方法
+    /// - parameter isBackItem:          是否是返回 Item( 如果是, 添加 返回箭头)
+    ///
     ///
     /// - returns: 实例化的 BarButtonItem对象
     convenience init(title: String, fontSize: CGFloat = 16,
                      normalTextColor: UIColor = UIColor.darkGray,
                      highlightdTextColor: UIColor = UIColor.orange,
-                     target: AnyObject?, selected: Selector) {
+                     target: AnyObject?, selected: Selector,
+                     isBackItem: Bool = false,
+                     backImageName: String? = nil) {
         let button = UIButton(type: .custom)
         button.setTitle(title, for: .normal)
         button.setTitleColor(UIColor.black, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
         button.setTitleColor(normalTextColor, for: .normal)
         button.setTitleColor(highlightdTextColor, for: .highlighted)
+        
+        if isBackItem && (backImageName != nil){
+            button.setImage(UIImage(named: backImageName!), for: .normal)
+            button.setImage(UIImage(named: backImageName! + "_highlighted"), for: .highlighted)
+        }
+        
         button.addTarget(target, action: selected, for: .touchUpInside)
         button.sizeToFit()
         
