@@ -13,6 +13,13 @@ class WB_BaseViewController: UIViewController {
     /// 如果用户没有登录, tableView 不显示, 不创建
     var tableView: UITableView?
     
+    /// 下拉刷新控件
+    var refreshControl: UIRefreshControl?
+    
+    /// 上拉刷新标记
+    var isPullUp = false
+    
+    
     /// 自定义导航条 View
     lazy var navigationBar: UINavigationBar = { [weak self] () -> UINavigationBar in
         let navigationBar =  self?.createNavigationBar()
@@ -44,9 +51,11 @@ class WB_BaseViewController: UIViewController {
 
 extension WB_BaseViewController {
     public func setupUI() -> Void {
+        automaticallyAdjustsScrollViewInsets = false
         navigationController?.navigationBar.isHidden = true
         self.view.addSubview(navigationBar)
         setUpTableView()
+        setUpRefreshControl()
     }
     
     /// 重写设置 title 方法, 将传递的 title 数据赋值到自定义的 navigationItem -> navigationBar
@@ -58,12 +67,18 @@ extension WB_BaseViewController {
     
     private func setUpTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
-        
+        tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height, left: 0, bottom: tabBarController?.tabBar.bounds.height ?? 0, right: 0)
         // 设置数据源和代理
         tableView?.delegate = self
         tableView?.dataSource = self
         
-        view.insertSubview(tableView!, aboveSubview: navigationBar)
+        view.insertSubview(tableView!, belowSubview: navigationBar)
+    }
+    
+    private func setUpRefreshControl() {
+        refreshControl = UIRefreshControl()
+        tableView?.addSubview(refreshControl!)
+        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
     
     private func createNavigationBar() -> UINavigationBar {
@@ -85,5 +100,31 @@ extension WB_BaseViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
-
+    
+    /// 在显示最后一行时, 显示上拉刷新
+    ///
+    /// - parameter tableView: <#tableView description#>
+    /// - parameter cell:      <#cell description#>
+    /// - parameter indexPath: <#indexPath description#>
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // 判断是否是最后一行
+        let row = indexPath.row
+        let section = tableView.numberOfSections - 1
+        if section < 0 || row < 0 {
+            return
+        }
+        
+        // 最后一个 section, cell 的行数
+        let rowCount = tableView.numberOfRows(inSection: section)
+        
+        // 如果是最后一行, 并且没有开始上拉刷新
+        if row == (rowCount - 1) &&
+            indexPath.section == section &&
+            !isPullUp{
+            print("上拉刷新")
+            isPullUp = true
+            loadData()
+        }
+        
+    }
 }
