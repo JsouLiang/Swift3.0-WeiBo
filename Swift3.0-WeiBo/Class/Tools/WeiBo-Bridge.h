@@ -11,5 +11,6 @@
 #ifndef WeiBo_Bridge_h
 #define WeiBo_Bridge_h
 
+#import "CZAdditions.h"
 
 #endif /* WeiBo_Bridge_h */

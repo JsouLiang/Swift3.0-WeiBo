@@ -10,6 +10,9 @@ import UIKit
 
 class WB_BaseViewController: UIViewController {
     
+    /// 用户登录标记，用户登录true，没有登录false
+    var userLogin: Bool? = false
+    
     /// 如果用户没有登录, tableView 不显示, 不创建
     var tableView: UITableView?
     
@@ -40,7 +43,8 @@ class WB_BaseViewController: UIViewController {
     
     /// 加载数据, 不做任何实现, 具体实现由子类负责
     func loadData() {
-        
+        // 如果子类没有实现，默认关闭刷新
+        refreshControl?.endRefreshing()
     }
 }
 
@@ -48,14 +52,20 @@ class WB_BaseViewController: UIViewController {
 // MARK: - 
 //: 注意 
 //: 1. Extension 中不能有属性
+//: 2. 不能重新父类中非extension中的方法
 
 extension WB_BaseViewController {
     public func setupUI() -> Void {
         automaticallyAdjustsScrollViewInsets = false
         navigationController?.navigationBar.isHidden = true
         self.view.addSubview(navigationBar)
-        setUpTableView()
-        setUpRefreshControl()
+        
+        if userLogin == false {
+            setUpVisitorView()
+        } else {
+            setUpTableView()
+            setUpRefreshControl()
+        }
     }
     
     /// 重写设置 title 方法, 将传递的 title 数据赋值到自定义的 navigationItem -> navigationBar
@@ -65,9 +75,10 @@ extension WB_BaseViewController {
         }
     }
     
-    private func setUpTableView() {
+    /// 数据展示视图
+    fileprivate func setUpTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
-        tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height, left: 0, bottom: tabBarController?.tabBar.bounds.height ?? 0, right: 0)
+        tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height, left: 0, bottom: tabBarController?.tabBar.bounds.height ?? 49, right: 0)
         // 设置数据源和代理
         tableView?.delegate = self
         tableView?.dataSource = self
@@ -75,13 +86,19 @@ extension WB_BaseViewController {
         view.insertSubview(tableView!, belowSubview: navigationBar)
     }
     
-    private func setUpRefreshControl() {
+    /// 访客视图
+    fileprivate func setUpVisitorView() {
+        let visitorView = WB_VisitorView(frame: view.bounds)
+        view.insertSubview(visitorView, belowSubview: navigationBar)
+    }
+    
+    fileprivate func setUpRefreshControl() {
         refreshControl = UIRefreshControl()
         tableView?.addSubview(refreshControl!)
         refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
     }
     
-    private func createNavigationBar() -> UINavigationBar {
+    fileprivate func createNavigationBar() -> UINavigationBar {
         let navBar = UINavigationBar(frame: CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.width, height: 64))
         navBar.items = [navigationBarItem]
         navBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.darkGray]

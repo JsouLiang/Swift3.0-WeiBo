@@ -13,7 +13,7 @@ private let cellIdentifier = "HomeTableViewCell"
 class WB_HomeViewController: WB_BaseViewController {
 
     /// 微博数据数组
-    lazy private var statusList = [String]()
+    lazy fileprivate var statusList = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,12 @@ class WB_HomeViewController: WB_BaseViewController {
         }
     }
 
-    @objc private func handleAddFriendAction(barButtonItem: UIBarButtonItem) -> Void {
+    /// 加载数据
+    override func loadData() {
+        
+    }
+    
+    @objc fileprivate func handleAddFriendAction(barButtonItem: UIBarButtonItem) -> Void {
         
     }
 
@@ -40,6 +45,7 @@ extension WB_HomeViewController {
     }
 }
 
+// MARK: - 设置界面
 extension WB_HomeViewController {
     override func setupUI() {
         super.setupUI()

@@ -10,7 +10,7 @@ import UIKit
 
 class WB_MainViewController: UITabBarController {
 
-    private lazy var composeButton: UIButton = { () -> UIButton
+    fileprivate lazy var composeButton: UIButton = { () -> UIButton
         in
         let button = UIButton()
         button.setBackgroundImage(UIImage(named: "tabbar_compose_button"), for: .normal)
@@ -39,7 +39,7 @@ class WB_MainViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    @objc private func handleComposeAction(composeButton: UIButton) -> Void {
+    @objc fileprivate func handleComposeAction(composeButton: UIButton) -> Void {
         
     }
 }
@@ -48,7 +48,7 @@ class WB_MainViewController: UITabBarController {
 extension WB_MainViewController {
     
     /// 添加加号按钮
-    private func setupComposeButton() {
+    fileprivate func setupComposeButton() {
         tabBar.addSubview(composeButton)
         // 设置加号按钮 frame
         let count: CGFloat = CGFloat(childViewControllers.count)
@@ -58,7 +58,7 @@ extension WB_MainViewController {
     }
     
     /// 设置所有子控制器
-    private func setUpChildViewController() {
+    fileprivate func setUpChildViewController() {
         let childViewControllerInfos = [
             ["className": "WB_HomeViewController", "title": "首页", "imageName": "home"],
             ["className": "WB_MessageViewController", "title": "消息", "imageName": "message_center"],
@@ -81,7 +81,7 @@ extension WB_MainViewController {
     /// - parameter info: 控制器信息[className: "控制器类", title: "标题", imageName: "图片名称"]
     ///
     /// - returns: 子控制器
-    private func controller(info: [String: String]) -> UIViewController {
+    fileprivate func controller(info: [String: String]) -> UIViewController {
         let namespace = Bundle.main.infoDictionary?["CFBundleName"] as? String ?? ""
         guard let className = info["className"],
               let title = info["title"],
@@ -93,8 +93,8 @@ extension WB_MainViewController {
         // 创建视图控制器
         let viewController =  cls.init()
         viewController.title = title
-        viewController.tabBarItem.image = UIImage(named: "tabbar_" + imageName)
-        viewController.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_selected")
+        viewController.tabBarItem.image = UIImage(named: "tabbar_" + imageName)?.withRenderingMode(.alwaysOriginal)
+        viewController.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_selected")?.withRenderingMode(.alwaysOriginal)
         
         // 设置 TabBar 字体
         viewController.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.orange], for: .highlighted)
