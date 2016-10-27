@@ -11,6 +11,7 @@
 		475354841D7DAFA700997B52 /* WB_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475354831D7DAFA700997B52 /* WB_MainViewController.swift */; };
 		475354861D7DAFCE00997B52 /* WB_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475354851D7DAFCE00997B52 /* WB_NavigationController.swift */; };
 		475354891D7DB00000997B52 /* WB_BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475354881D7DB00000997B52 /* WB_BaseViewController.swift */; };
+		4782510E1DC1E82C00E9A7EB /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 4782510D1DC1E82C00E9A7EB /* main.json */; };
 		4782EE021DC0E36C00D4E9DB /* WB_VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782EE011DC0E36C00D4E9DB /* WB_VisitorView.swift */; };
 		4782EE1D1DC0F3B100D4E9DB /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 4782EE061DC0F3B100D4E9DB /* NSArray+Log.m */; };
 		4782EE1E1DC0F3B100D4E9DB /* NSAttributedString+CZAdditon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4782EE081DC0F3B100D4E9DB /* NSAttributedString+CZAdditon.m */; };
@@ -40,6 +41,7 @@
 		475354851D7DAFCE00997B52 /* WB_NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_NavigationController.swift; sourceTree = "<group>"; };
 		475354881D7DB00000997B52 /* WB_BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_BaseViewController.swift; sourceTree = "<group>"; };
 		4753548A1D7DB22600997B52 /* WeiBo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeiBo-Bridge.h"; sourceTree = "<group>"; };
+		4782510D1DC1E82C00E9A7EB /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		4782EE011DC0E36C00D4E9DB /* WB_VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_VisitorView.swift; sourceTree = "<group>"; };
 		4782EE041DC0F3B100D4E9DB /* CZAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZAdditions.h; sourceTree = "<group>"; };
 		4782EE051DC0F3B100D4E9DB /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		4753547F1D7DAF5A00997B52 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				4782510D1DC1E82C00E9A7EB /* main.json */,
 				4782EDFD1DC0E22E00D4E9DB /* VisitorView */,
 				475354831D7DAFA700997B52 /* WB_MainViewController.swift */,
 				475354851D7DAFCE00997B52 /* WB_NavigationController.swift */,
@@ -319,6 +322,7 @@
 			files = (
 				47FB57CF1D56F0A300BCBF41 /* LaunchScreen.storyboard in Resources */,
 				47FB57CC1D56F0A300BCBF41 /* Assets.xcassets in Resources */,
+				4782510E1DC1E82C00E9A7EB /* main.json in Resources */,
 				47FB57CA1D56F0A300BCBF41 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

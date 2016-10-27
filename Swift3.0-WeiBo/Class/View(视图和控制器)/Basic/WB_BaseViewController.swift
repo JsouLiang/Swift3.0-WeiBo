@@ -16,6 +16,9 @@ class WB_BaseViewController: UIViewController {
     /// 如果用户没有登录, tableView 不显示, 不创建
     var tableView: UITableView?
     
+    /// 访客视图信息字典
+    var visitorInfo: [String: String]?
+    
     /// 下拉刷新控件
     var refreshControl: UIRefreshControl?
     
@@ -89,6 +92,7 @@ extension WB_BaseViewController {
     /// 访客视图
     fileprivate func setUpVisitorView() {
         let visitorView = WB_VisitorView(frame: view.bounds)
+        visitorView.visitorViewInfo = visitorInfo
         view.insertSubview(visitorView, belowSubview: navigationBar)
     }
     

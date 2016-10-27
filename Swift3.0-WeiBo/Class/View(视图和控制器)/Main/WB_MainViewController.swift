@@ -59,13 +59,36 @@ extension WB_MainViewController {
     
     /// 设置所有子控制器
     fileprivate func setUpChildViewController() {
-        let childViewControllerInfos = [
-            ["className": "WB_HomeViewController", "title": "首页", "imageName": "home"],
-            ["className": "WB_MessageViewController", "title": "消息", "imageName": "message_center"],
-            ["className": "", "title": "", "imageName": ""],
-            ["className": "WB_DiscoverViewController", "title": "发现", "imageName": "discover"],
-            ["className": "WB_ProfileViewController", "title": "我", "imageName": "profile"],
-            ]
+        
+        // 从budle中加载配置json
+        guard let path = Bundle.main.path(forResource: "main.json", ofType: nil),
+            let data = NSData(contentsOfFile: path),
+            let childViewControllerInfos = try! JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: Any]] else {
+            return
+        }
+        
+//        
+//        let childViewControllerInfos = [
+//            ["className": "WB_HomeViewController", "title": "首页", "imageName": "home",
+//             "visitorInfo": ["imageName": "", "message": "关注一些人，回这里看看有什么惊喜"]],
+//            
+//            ["className": "WB_MessageViewController", "title": "消息", "imageName": "message_center",
+//             "visitorInfo": ["imageName": "visitordiscover_image_message",
+//                             "message": "登录后，别人评论你的微博，发给你的消息，都会在这里收到通知"]],
+//            
+//            ["className": "", "title": "", "imageName": ""],
+//            
+//            ["className": "WB_DiscoverViewController", "title": "发现", "imageName": "discover",
+//            "visitorInfo": ["imageName": "visitordiscover_image_message",
+//                           "message": "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"]],
+//            
+//            ["className": "WB_ProfileViewController", "title": "我", "imageName": "profile",
+//            "visitorInfo": ["imageName": "visitordiscover_image_profile",
+//                           "message": "登录 后，你的微博、相册、个人资料会显示在这里，展示给别人"]],
+//            ]
+        
+//        let data = try! JSONSerialization.data(withJSONObject: childViewControllerInfos, options: [])
+//        (data as NSData).write(toFile: "/Users/X-Liang/Desktop/demo.json", atomically: true)
         
         let childViewControllers = childViewControllerInfos.map { (info: Dictionary) -> UIViewController in
             return self.controller(info: info)
@@ -81,12 +104,13 @@ extension WB_MainViewController {
     /// - parameter info: 控制器信息[className: "控制器类", title: "标题", imageName: "图片名称"]
     ///
     /// - returns: 子控制器
-    fileprivate func controller(info: [String: String]) -> UIViewController {
+    fileprivate func controller(info: [String: Any]) -> UIViewController {
         let namespace = Bundle.main.infoDictionary?["CFBundleName"] as? String ?? ""
-        guard let className = info["className"],
-              let title = info["title"],
-              let imageName = info["imageName"],
-              let cls = NSClassFromString(namespace + "." + className) as? UIViewController.Type
+        guard let className = info["className"] as? String,
+              let title = info["title"] as? String,
+              let imageName = info["imageName"] as? String,
+              let cls = NSClassFromString(namespace + "." + className) as? WB_BaseViewController.Type, 
+              let visitorInfo = info["visitorInfo"] as? [String: String]
             else {
                     return UIViewController()
         }
@@ -95,6 +119,9 @@ extension WB_MainViewController {
         viewController.title = title
         viewController.tabBarItem.image = UIImage(named: "tabbar_" + imageName)?.withRenderingMode(.alwaysOriginal)
         viewController.tabBarItem.selectedImage = UIImage(named: "tabbar_" + imageName + "_selected")?.withRenderingMode(.alwaysOriginal)
+        
+        // 设置控制器的访客信息字典
+        viewController.visitorInfo = visitorInfo
         
         // 设置 TabBar 字体
         viewController.tabBarItem.setTitleTextAttributes([NSForegroundColorAttributeName : UIColor.orange], for: .highlighted)
