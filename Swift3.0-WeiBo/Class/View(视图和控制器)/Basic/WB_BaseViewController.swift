@@ -51,12 +51,21 @@ class WB_BaseViewController: UIViewController {
     }
 }
 
+// MARK: -访客视图监听方法
+extension WB_BaseViewController {
+    @objc fileprivate func login() {
+        
+    }
+    
+    @objc fileprivate func register() {
+        
+    }
+}
 
 // MARK: - 
 //: 注意 
 //: 1. Extension 中不能有属性
 //: 2. 不能重新父类中非extension中的方法
-
 extension WB_BaseViewController {
     public func setupUI() -> Void {
         automaticallyAdjustsScrollViewInsets = false
@@ -93,6 +102,8 @@ extension WB_BaseViewController {
     fileprivate func setUpVisitorView() {
         let visitorView = WB_VisitorView(frame: view.bounds)
         visitorView.visitorViewInfo = visitorInfo
+        visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
+        visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside) 
         view.insertSubview(visitorView, belowSubview: navigationBar)
     }
     
@@ -123,10 +134,6 @@ extension WB_BaseViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     /// 在显示最后一行时, 显示上拉刷新
-    ///
-    /// - parameter tableView: <#tableView description#>
-    /// - parameter cell:      <#cell description#>
-    /// - parameter indexPath: <#indexPath description#>
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         // 判断是否是最后一行
         let row = indexPath.row

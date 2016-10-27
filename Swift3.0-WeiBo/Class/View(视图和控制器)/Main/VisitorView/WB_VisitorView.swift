@@ -10,6 +10,24 @@ import UIKit
 
 /// 访客视图
 class WB_VisitorView: UIView {
+    
+    /// 注册按钮
+    lazy var registerButton: UIButton = UIButton.cz_textButton(
+        "注册",
+        fontSize: 16,
+        normalColor: UIColor.orange,
+        highlightedColor: UIColor.black,
+        backgroundImageName: "common_button_white_disable")
+    
+    /// 登录按钮
+    lazy var loginButton: UIButton = UIButton.cz_textButton(
+        "登录",
+        fontSize: 16,
+        normalColor: UIColor.darkGray,
+        highlightedColor: UIColor.black,
+        backgroundImageName: "common_button_white_disable")
+
+    
     /// - parameter dict: [imageName 对应iconImageView的image/ message对应tipLabel 的内容]
     /// 如果是首页 imageName: ""
     var visitorViewInfo: [String: String]? {
@@ -69,21 +87,6 @@ class WB_VisitorView: UIView {
         withText: "关注一些人，回这里看看有什么惊喜关注一些人，回这里看看有什么惊喜",
         fontSize: 14,
         color: UIColor.darkGray)
-    /// 注册按钮
-    fileprivate lazy var registerButton: UIButton = UIButton.cz_textButton(
-        "注册",
-        fontSize: 16,
-        normalColor: UIColor.orange,
-        highlightedColor: UIColor.black,
-        backgroundImageName: "common_button_white_disable")
-    
-    /// 登录按钮
-    fileprivate lazy var loginButton: UIButton = UIButton.cz_textButton(
-        "登录",
-        fontSize: 16,
-        normalColor: UIColor.darkGray,
-        highlightedColor: UIColor.black,
-        backgroundImageName: "common_button_white_disable")
 }
 
 extension WB_VisitorView {

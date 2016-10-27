@@ -60,35 +60,22 @@ extension WB_MainViewController {
     /// 设置所有子控制器
     fileprivate func setUpChildViewController() {
         
-        // 从budle中加载配置json
-        guard let path = Bundle.main.path(forResource: "main.json", ofType: nil),
-            let data = NSData(contentsOfFile: path),
-            let childViewControllerInfos = try! JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String: Any]] else {
-            return
+        // 获取沙盒json路径
+        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let jsonPath = (docDir as NSString).appendingPathComponent("main.json")
+        // 加载Data
+        var data = NSData(contentsOfFile: jsonPath)
+        if data == nil {
+            // 从bundle中加载
+             let path = Bundle.main.path(forResource: "main.json", ofType: nil)
+             data = NSData(contentsOfFile: path!)
         }
         
-//        
-//        let childViewControllerInfos = [
-//            ["className": "WB_HomeViewController", "title": "首页", "imageName": "home",
-//             "visitorInfo": ["imageName": "", "message": "关注一些人，回这里看看有什么惊喜"]],
-//            
-//            ["className": "WB_MessageViewController", "title": "消息", "imageName": "message_center",
-//             "visitorInfo": ["imageName": "visitordiscover_image_message",
-//                             "message": "登录后，别人评论你的微博，发给你的消息，都会在这里收到通知"]],
-//            
-//            ["className": "", "title": "", "imageName": ""],
-//            
-//            ["className": "WB_DiscoverViewController", "title": "发现", "imageName": "discover",
-//            "visitorInfo": ["imageName": "visitordiscover_image_message",
-//                           "message": "登录后，最新、最热微博尽在掌握，不再会与实事潮流擦肩而过"]],
-//            
-//            ["className": "WB_ProfileViewController", "title": "我", "imageName": "profile",
-//            "visitorInfo": ["imageName": "visitordiscover_image_profile",
-//                           "message": "登录 后，你的微博、相册、个人资料会显示在这里，展示给别人"]],
-//            ]
-        
-//        let data = try! JSONSerialization.data(withJSONObject: childViewControllerInfos, options: [])
-//        (data as NSData).write(toFile: "/Users/X-Liang/Desktop/demo.json", atomically: true)
+        // data 一定会有内容
+        // 反序列化
+        guard let childViewControllerInfos = try! JSONSerialization.jsonObject(with: data as! Data, options: []) as? [[String: Any]] else{
+            return
+        }
         
         let childViewControllers = childViewControllerInfos.map { (info: Dictionary) -> UIViewController in
             return self.controller(info: info)
