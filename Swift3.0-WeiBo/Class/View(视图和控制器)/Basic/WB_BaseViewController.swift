@@ -11,7 +11,7 @@ import UIKit
 class WB_BaseViewController: UIViewController {
     
     /// 用户登录标记，用户登录true，没有登录false
-    var userLogin: Bool? = false
+    var userLogin: Bool? = true
     
     /// 如果用户没有登录, tableView 不显示, 不创建
     var tableView: UITableView?

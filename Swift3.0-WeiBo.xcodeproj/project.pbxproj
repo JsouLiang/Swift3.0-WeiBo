@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		47080F641D819CE3003183BE /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47080F631D819CE3003183BE /* UIBarButtonItem+Extension.swift */; };
+		473CACF31DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */; };
 		475354841D7DAFA700997B52 /* WB_MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475354831D7DAFA700997B52 /* WB_MainViewController.swift */; };
 		475354861D7DAFCE00997B52 /* WB_NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475354851D7DAFCE00997B52 /* WB_NavigationController.swift */; };
 		475354891D7DB00000997B52 /* WB_BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475354881D7DB00000997B52 /* WB_BaseViewController.swift */; };
+		475930281DC341CF00F2B9F4 /* WB_NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 475930271DC341CF00F2B9F4 /* WB_NetworkManager.swift */; };
 		4782510E1DC1E82C00E9A7EB /* main.json in Resources */ = {isa = PBXBuildFile; fileRef = 4782510D1DC1E82C00E9A7EB /* main.json */; };
 		4782EE021DC0E36C00D4E9DB /* WB_VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4782EE011DC0E36C00D4E9DB /* WB_VisitorView.swift */; };
 		4782EE1D1DC0F3B100D4E9DB /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 4782EE061DC0F3B100D4E9DB /* NSArray+Log.m */; };
@@ -38,10 +40,12 @@
 
 /* Begin PBXFileReference section */
 		47080F631D819CE3003183BE /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WB_NetworkManager+Extension.swift"; sourceTree = "<group>"; };
 		475354831D7DAFA700997B52 /* WB_MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_MainViewController.swift; sourceTree = "<group>"; };
 		475354851D7DAFCE00997B52 /* WB_NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_NavigationController.swift; sourceTree = "<group>"; };
 		475354881D7DB00000997B52 /* WB_BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_BaseViewController.swift; sourceTree = "<group>"; };
 		4753548A1D7DB22600997B52 /* WeiBo-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WeiBo-Bridge.h"; sourceTree = "<group>"; };
+		475930271DC341CF00F2B9F4 /* WB_NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_NetworkManager.swift; sourceTree = "<group>"; };
 		4782510D1DC1E82C00E9A7EB /* main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = main.json; sourceTree = "<group>"; };
 		4782EE011DC0E36C00D4E9DB /* WB_VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_VisitorView.swift; sourceTree = "<group>"; };
 		4782EE041DC0F3B100D4E9DB /* CZAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CZAdditions.h; sourceTree = "<group>"; };
@@ -134,6 +138,7 @@
 		4753547B1D7DAF5A00997B52 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				475930261DC341B300F2B9F4 /* Network */,
 				4782EE031DC0F39B00D4E9DB /* Additions */,
 				4753548A1D7DB22600997B52 /* WeiBo-Bridge.h */,
 				47080F631D819CE3003183BE /* UIBarButtonItem+Extension.swift */,
@@ -210,6 +215,15 @@
 				475354881D7DB00000997B52 /* WB_BaseViewController.swift */,
 			);
 			path = Basic;
+			sourceTree = "<group>";
+		};
+		475930261DC341B300F2B9F4 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				475930271DC341CF00F2B9F4 /* WB_NetworkManager.swift */,
+				473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		4782EDFD1DC0E22E00D4E9DB /* VisitorView */ = {
@@ -416,9 +430,11 @@
 				475354861D7DAFCE00997B52 /* WB_NavigationController.swift in Sources */,
 				475354841D7DAFA700997B52 /* WB_MainViewController.swift in Sources */,
 				4782EE271DC0F3B100D4E9DB /* UIView+CZAddition.m in Sources */,
+				475930281DC341CF00F2B9F4 /* WB_NetworkManager.swift in Sources */,
 				475354891D7DB00000997B52 /* WB_BaseViewController.swift in Sources */,
 				4782EE251DC0F3B100D4E9DB /* UILabel+CZAddition.m in Sources */,
 				4782EE211DC0F3B100D4E9DB /* NSString+CZHash.m in Sources */,
+				473CACF31DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift in Sources */,
 				4782EE241DC0F3B100D4E9DB /* UIColor+CZAddition.m in Sources */,
 				4782EE281DC0F3B100D4E9DB /* UIViewController+CZAddition.m in Sources */,
 				4782EE261DC0F3B100D4E9DB /* UIScreen+CZAddition.m in Sources */,
