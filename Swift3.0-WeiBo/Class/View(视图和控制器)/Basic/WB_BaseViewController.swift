@@ -67,7 +67,8 @@ extension WB_BaseViewController {
 //: 1. Extension 中不能有属性
 //: 2. 不能重新父类中非extension中的方法
 extension WB_BaseViewController {
-    public func setupUI() -> Void {
+    
+    fileprivate func setupUI() -> Void {
         automaticallyAdjustsScrollViewInsets = false
         navigationController?.navigationBar.isHidden = true
         self.view.addSubview(navigationBar)
@@ -88,7 +89,8 @@ extension WB_BaseViewController {
     }
     
     /// 数据展示视图
-    fileprivate func setUpTableView() {
+    /// 子类并不需要知道用户登录之前的逻辑，所以把配置访客视图的逻辑setupUI改成私有方法， 子类只处理用户登录后的设置tableView的操作
+    open func setUpTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height, left: 0, bottom: tabBarController?.tabBar.bounds.height ?? 49, right: 0)
         // 设置数据源和代理
@@ -103,7 +105,10 @@ extension WB_BaseViewController {
         let visitorView = WB_VisitorView(frame: view.bounds)
         visitorView.visitorViewInfo = visitorInfo
         visitorView.registerButton.addTarget(self, action: #selector(register), for: .touchUpInside)
-        visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside) 
+        visitorView.loginButton.addTarget(self, action: #selector(login), for: .touchUpInside)
+        // 设置导航条按钮
+        navigationBarItem.leftBarButtonItem = UIBarButtonItem(title: "注册", target: self, selected: #selector(register))
+        navigationBarItem.rightBarButtonItem = UIBarButtonItem(title: "登录", target: self, selected: #selector(login))
         view.insertSubview(visitorView, belowSubview: navigationBar)
     }
     

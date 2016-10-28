@@ -47,8 +47,7 @@ extension WB_HomeViewController {
 
 // MARK: - 设置界面
 extension WB_HomeViewController {
-    override func setupUI() {
-        super.setupUI()
+    override func setUpTableView() {
         navigationBarItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, selected: #selector(WB_HomeViewController.handleAddFriendAction(barButtonItem:)))
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
     }
