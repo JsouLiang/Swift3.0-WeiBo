@@ -13,8 +13,8 @@ extension WB_NetworkManager {
     
     /// 加载微博数据
     ///
-    /// - Parameter complation: 完成操作list：微博字典数组
-    func statusList(complation: @escaping (list: [[String: Any]]?, isSuccess: Bool) -> ()) {
+    /// - Parameter complation: 完成操作list：微博字典数组， 是否成功
+    func statusList(complation: @escaping ([[String: Any]]?, Bool) -> ()) {
         let urlStr = "https://api.weibo.com/2/statuses/public_timeline.json"
         let params = ["access_token": "2.00yyFj9D3UqMzDfca7866a25aFyA8D"]
         
@@ -24,7 +24,7 @@ extension WB_NetworkManager {
             
         })*/
         // 尾随闭包
-        request(URLString: urlStr, paramaters: params){ (json, isSuccess) in
+        tokeRequest(URLString: urlStr, paramaters: params){ (json, isSuccess) in
             guard let result = json as? [String: AnyObject], let statuses = result["statuses"] else {
                 return
             }
