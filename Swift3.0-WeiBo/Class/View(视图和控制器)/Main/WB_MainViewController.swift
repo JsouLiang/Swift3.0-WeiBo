@@ -10,6 +10,13 @@ import UIKit
 
 class WB_MainViewController: UITabBarController {
 
+    fileprivate var timer: Timer?
+    
+    deinit {
+        // 销毁时钟
+        timer?.invalidate()
+    }
+    
     fileprivate lazy var composeButton: UIButton = { () -> UIButton
         in
         let button = UIButton()
@@ -21,6 +28,7 @@ class WB_MainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegate = self
         setUpChildViewController()
         setupComposeButton()
     }
@@ -44,6 +52,26 @@ class WB_MainViewController: UITabBarController {
     }
 }
 
+extension WB_MainViewController {
+    /// 定义时钟
+    fileprivate func setupTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    /// 时钟触发方法
+    @objc private func updateTimer() {
+        // 微博未读数量
+        WB_NetworkManager.sharedManager.unreadCount(){ (count) in
+            // 设置首页tabbar badgeNumber
+            self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+            
+            // 设置App图标的badgeNumber
+            // 从iOS8 之后要有用户授权才可以显示
+            UIApplication.shared.applicationIconBadgeNumber = count
+        }
+    }
+}
+
 // extension 中不能定义属性，只能定义方法
 extension WB_MainViewController {
     
@@ -52,7 +80,7 @@ extension WB_MainViewController {
         tabBar.addSubview(composeButton)
         // 设置加号按钮 frame
         let count: CGFloat = CGFloat(childViewControllers.count)
-        let width = tabBar.bounds.width / count - 1
+        let width = tabBar.bounds.width/count
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * width, dy: 0)
         composeButton.addTarget(self, action: #selector(WB_MainViewController.handleComposeAction(composeButton:)), for: .touchUpInside)
     }
@@ -118,4 +146,17 @@ extension WB_MainViewController {
     }
     
    
+}
+
+extension WB_MainViewController: UITabBarControllerDelegate {
+    
+    /// 将要选择tabBarItem
+    ///
+    /// - Parameters:
+    ///   - tabBarController: tabBarController
+    ///   - viewController: 目标控制器
+    /// - Returns: 是否切换到目标控制器
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        return !viewController.isMember(of: UIViewController.self)
+    }
 }

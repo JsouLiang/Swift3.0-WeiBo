@@ -25,15 +25,27 @@ extension WB_NetworkManager {
         
         // 常规写法
         /*
-        request(URLString: urlStr, paramaters: params, complation: { (json, isSuccess) in
-            
-        })*/
+         request(URLString: urlStr, paramaters: params, complation: { (json, isSuccess) in
+         
+         })*/
         // 尾随闭包
         tokeRequest(URLString: urlStr, paramaters: params){ (json, isSuccess) in
             guard let result = json as? [String: AnyObject], let statuses = result["statuses"] else {
                 return
             }
             complation(statuses as? [[String : Any]], isSuccess)
+        }
+    }
+    
+    
+    /// 返回微博的未读数
+    func unreadCount(complation: @escaping (_ count: Int) -> ()) {
+        let urlString = "https://rm.api.weibo.com/2/remind/unread_count.json"
+        var params:[String: Any]?
+        tokeRequest(URLString: urlString, paramaters: params) { (json, isSuccess) in
+            let dict = json as? [String: Any]
+            let count = dict?["status"] as? Int
+            complation(count ?? 0)
         }
     }
 }
