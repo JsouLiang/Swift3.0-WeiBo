@@ -24,7 +24,7 @@ class WB_HomeViewController: WB_BaseViewController {
 
     /// 加载数据
     override func loadData() {
-              
+        
     }
     
     @objc fileprivate func handleAddFriendAction(barButtonItem: UIBarButtonItem) -> Void {
