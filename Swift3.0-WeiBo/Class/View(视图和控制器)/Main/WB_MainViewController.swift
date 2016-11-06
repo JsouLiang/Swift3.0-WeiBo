@@ -157,6 +157,20 @@ extension WB_MainViewController: UITabBarControllerDelegate {
     ///   - viewController: 目标控制器
     /// - Returns: 是否切换到目标控制器
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        // 获取控制器在数组中的索引
+        let index = (childViewControllers as NSArray).index(of: viewController)
+        
+        // 当前索引是首页同时index也是首页，相当于重复点击首页
+        if selectedIndex == 0 && index == selectedIndex {
+            let nav = childViewControllers[0] as! UINavigationController
+            let vc = nav.childViewControllers[0] as! WB_HomeViewController
+            
+            vc.tableView?.setContentOffset(CGPoint(x: 0, y: -64), animated: true)
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1){
+                vc.loadData()
+            }
+        }
         return !viewController.isMember(of: UIViewController.self)
     }
 }
