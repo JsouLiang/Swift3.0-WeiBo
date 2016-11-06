@@ -11,12 +11,17 @@ import Foundation
 // MARK: - 封装“新浪微博”的网络请求方法
 extension WB_NetworkManager {
     
-    /// 加载微博数据
+    /// 加载微博列表
     ///
+    /// - Parameters:
+    ///   - sinceId: 返回id比sinceId大的微博, 默认为0
+    ///   - maxId: 返回id比maxId小的微博, 默认为0
+    ///   - completion: 完成操作
     /// - Parameter complation: 完成操作list：微博字典数组， 是否成功
-    func statusList(complation: @escaping ([[String: Any]]?, Bool) -> ()) {
+    func statusList(sinceId:Int64 = 0, maxId:Int64 = 0, complation: @escaping ([[String: Any]]?, Bool) -> ()) {
         let urlStr = "https://api.weibo.com/2/statuses/public_timeline.json"
-        let params = ["access_token": "2.00yyFj9D3UqMzDfca7866a25aFyA8D"]
+        let params = ["since_id": "\(sinceId)",
+                      "max_id": "\(maxId)"]
         
         // 常规写法
         /*

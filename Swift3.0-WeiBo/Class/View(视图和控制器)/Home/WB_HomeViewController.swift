@@ -11,14 +11,19 @@ import UIKit
 private let cellIdentifier = "HomeTableViewCell"
 
 class WB_HomeViewController: WB_BaseViewController {
-
-    /// 微博数据数组
-    lazy fileprivate var statusList = [String]()
+    
+    /// 列表视图模型
+    fileprivate lazy var listViewModel = WB_StatusListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for i in 0..<20 {
-            statusList.insert(String(i), at: i)
+        listViewModel.loadStatus{ (isSuccess: Bool) -> () in
+            /// 加载微博列表
+            ///
+            /// - Parameters:
+            ///   - sinceId: 返回id比sinceId大的微博, 默认为0
+            ///   - maxId: 返回id比maxId小的微博, 默认为0
+            ///   - completion: 完成操作
         }
     }
 
@@ -35,12 +40,12 @@ class WB_HomeViewController: WB_BaseViewController {
 
 extension WB_HomeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statusList.count
+        return listViewModel.statusList.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        cell.textLabel?.text = statusList[indexPath.row]
+//        cell.textLabel?.text = listViewModel.statusList[indexPath.row]
         return cell
     }
 }
