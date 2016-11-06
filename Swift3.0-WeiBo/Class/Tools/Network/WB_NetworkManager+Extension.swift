@@ -21,7 +21,7 @@ extension WB_NetworkManager {
     func statusList(sinceId:Int64 = 0, maxId:Int64 = 0, complation: @escaping ([[String: Any]]?, Bool) -> ()) {
         let urlStr = "https://api.weibo.com/2/statuses/public_timeline.json"
         let params = ["since_id": "\(sinceId)",
-                      "max_id": "\(maxId)"]
+            "max_id": "\(maxId > 0 ? maxId - 1 : 0)"]
         
         // 常规写法
         /*

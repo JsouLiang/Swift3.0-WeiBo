@@ -17,19 +17,21 @@ class WB_HomeViewController: WB_BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        listViewModel.loadStatus{ (isSuccess: Bool) -> () in
-            /// 加载微博列表
-            ///
-            /// - Parameters:
-            ///   - sinceId: 返回id比sinceId大的微博, 默认为0
-            ///   - maxId: 返回id比maxId小的微博, 默认为0
-            ///   - completion: 完成操作
-        }
-    }
+            }
 
     /// 加载数据
     override func loadData() {
-        
+        listViewModel.loadStatus(pullUp: self.isPullUp){ (isSuccess: Bool, shouldRefreshTable: Bool) -> () in
+            if  shouldRefreshTable {
+                // 结束刷新控件
+                self.refreshControl?.endRefreshing()
+                // 恢复上拉刷新标记
+                self.isPullUp = false
+                // 刷新表格
+                self.tableView?.reloadData()
+            }
+        }
+
     }
     
     @objc fileprivate func handleAddFriendAction(barButtonItem: UIBarButtonItem) -> Void {
