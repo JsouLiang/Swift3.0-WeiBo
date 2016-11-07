@@ -11,7 +11,7 @@ import UIKit
 class WB_BaseViewController: UIViewController {
     
     /// 用户登录标记，用户登录true，没有登录false
-    var userLogin: Bool? = true
+//    var userLogin: Bool? = true
     
     /// 如果用户没有登录, tableView 不显示, 不创建
     var tableView: UITableView?
@@ -41,7 +41,8 @@ class WB_BaseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        loadData()
+        
+        WB_NetworkManager.sharedManager.userLogon ? loadData() : ()
     }
     
     /// 加载数据, 不做任何实现, 具体实现由子类负责
@@ -54,7 +55,8 @@ class WB_BaseViewController: UIViewController {
 // MARK: -访客视图监听方法
 extension WB_BaseViewController {
     @objc fileprivate func login() {
-        
+        // 发送通知
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WB_UserShouldLoginNotification), object: nil)
     }
     
     @objc fileprivate func register() {
@@ -73,7 +75,7 @@ extension WB_BaseViewController {
         navigationController?.navigationBar.isHidden = true
         self.view.addSubview(navigationBar)
         
-        if userLogin == false {
+        if !WB_NetworkManager.sharedManager.userLogon {
             setUpVisitorView()
         } else {
             setUpTableView()

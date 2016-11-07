@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		47080F641D819CE3003183BE /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47080F631D819CE3003183BE /* UIBarButtonItem+Extension.swift */; };
+		4731C5151DD0BDA700AD533C /* WB_Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5141DD0BDA700AD533C /* WB_Common.swift */; };
+		4731C5181DD0BFA800AD533C /* WB_OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5171DD0BFA800AD533C /* WB_OAuthViewController.swift */; };
 		4732DC591DCEF7BD0019B619 /* WB_Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4732DC581DCEF7BD0019B619 /* WB_Status.swift */; };
 		4732DC5B1DCEF9FE0019B619 /* WB_StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4732DC5A1DCEF9FE0019B619 /* WB_StatusListViewModel.swift */; };
 		473CACF31DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */; };
@@ -42,6 +44,8 @@
 
 /* Begin PBXFileReference section */
 		47080F631D819CE3003183BE /* UIBarButtonItem+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIBarButtonItem+Extension.swift"; sourceTree = "<group>"; };
+		4731C5141DD0BDA700AD533C /* WB_Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_Common.swift; sourceTree = "<group>"; };
+		4731C5171DD0BFA800AD533C /* WB_OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_OAuthViewController.swift; sourceTree = "<group>"; };
 		4732DC581DCEF7BD0019B619 /* WB_Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_Status.swift; sourceTree = "<group>"; };
 		4732DC5A1DCEF9FE0019B619 /* WB_StatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_StatusListViewModel.swift; sourceTree = "<group>"; };
 		473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WB_NetworkManager+Extension.swift"; sourceTree = "<group>"; };
@@ -121,6 +125,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		4731C5161DD0BF9800AD533C /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				4731C5171DD0BFA800AD533C /* WB_OAuthViewController.swift */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
 		475354791D7DAF5A00997B52 /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +158,7 @@
 				475930261DC341B300F2B9F4 /* Network */,
 				4782EE031DC0F39B00D4E9DB /* Additions */,
 				4753548A1D7DB22600997B52 /* WeiBo-Bridge.h */,
+				4731C5141DD0BDA700AD533C /* WB_Common.swift */,
 				47080F631D819CE3003183BE /* UIBarButtonItem+Extension.swift */,
 			);
 			path = Tools;
@@ -154,6 +167,7 @@
 		4753547C1D7DAF5A00997B52 /* View(视图和控制器) */ = {
 			isa = PBXGroup;
 			children = (
+				4731C5161DD0BF9800AD533C /* OAuth */,
 				475354871D7DAFEB00997B52 /* Basic */,
 				4753547F1D7DAF5A00997B52 /* Main */,
 				4753547E1D7DAF5A00997B52 /* Home */,
@@ -440,6 +454,7 @@
 				475354891D7DB00000997B52 /* WB_BaseViewController.swift in Sources */,
 				4782EE251DC0F3B100D4E9DB /* UILabel+CZAddition.m in Sources */,
 				4782EE211DC0F3B100D4E9DB /* NSString+CZHash.m in Sources */,
+				4731C5181DD0BFA800AD533C /* WB_OAuthViewController.swift in Sources */,
 				473CACF31DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift in Sources */,
 				4782EE241DC0F3B100D4E9DB /* UIColor+CZAddition.m in Sources */,
 				4782EE281DC0F3B100D4E9DB /* UIViewController+CZAddition.m in Sources */,
@@ -452,6 +467,7 @@
 				47FB57C51D56F0A300BCBF41 /* AppDelegate.swift in Sources */,
 				4782EE1E1DC0F3B100D4E9DB /* NSAttributedString+CZAdditon.m in Sources */,
 				4782EE231DC0F3B100D4E9DB /* UIButton+CZAddition.m in Sources */,
+				4731C5151DD0BDA700AD533C /* WB_Common.swift in Sources */,
 				47080F641D819CE3003183BE /* UIBarButtonItem+Extension.swift in Sources */,
 				4782EE021DC0E36C00D4E9DB /* WB_VisitorView.swift in Sources */,
 				47B1CDC61D806C37009DA77D /* WB_HomeViewController.swift in Sources */,

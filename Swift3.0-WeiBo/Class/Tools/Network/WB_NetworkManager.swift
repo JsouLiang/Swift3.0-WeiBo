@@ -22,7 +22,11 @@ class WB_NetworkManager: AFHTTPSessionManager {
     static let sharedManager = WB_NetworkManager()
     
     /// 访问令牌，所有的网络请求都基于此令牌
-    var accessToken: String? = "2.00yyFj9D3UqMzDfca7866a25aFyA8D"
+    var accessToken: String? // = "2.00yyFj9D3UqMzDfca7866a25aFyA8D"
+    
+    var userLogon: Bool {
+        return accessToken != nil
+    }
     
     /// 专门用来拼接token的网络请求
     func tokeRequest(method: WB_HTTPMethod = .GET, URLString: String,

@@ -15,6 +15,7 @@ class WB_MainViewController: UITabBarController {
     deinit {
         // 销毁时钟
         timer?.invalidate()
+        NotificationCenter.default.removeObserver(self)
     }
     
     fileprivate lazy var composeButton: UIButton = { () -> UIButton
@@ -31,6 +32,12 @@ class WB_MainViewController: UITabBarController {
         delegate = self
         setUpChildViewController()
         setupComposeButton()
+        
+        // 注册通知
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(userLogin),
+                                               name: NSNotification.Name(rawValue: WB_UserShouldLoginNotification),
+                                               object: nil)
     }
 
     
@@ -55,20 +62,28 @@ class WB_MainViewController: UITabBarController {
 extension WB_MainViewController {
     /// 定义时钟
     fileprivate func setupTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 20.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 60.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     /// 时钟触发方法
     @objc private func updateTimer() {
-        // 微博未读数量
-        WB_NetworkManager.sharedManager.unreadCount(){ (count) in
-            // 设置首页tabbar badgeNumber
-            self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
-            
-            // 设置App图标的badgeNumber
-            // 从iOS8 之后要有用户授权才可以显示
-            UIApplication.shared.applicationIconBadgeNumber = count
+        if WB_NetworkManager.sharedManager.userLogon {
+            // 微博未读数量
+            WB_NetworkManager.sharedManager.unreadCount(){ (count) in
+                // 设置首页tabbar badgeNumber
+                self.tabBar.items?[0].badgeValue = count > 0 ? "\(count)" : nil
+                
+                // 设置App图标的badgeNumber
+                // 从iOS8 之后要有用户授权才可以显示
+                UIApplication.shared.applicationIconBadgeNumber = count
+            }
         }
+    }
+    
+    @objc fileprivate func userLogin() {
+        // 用户登录
+        let nav = UINavigationController(rootViewController: WB_OAuthViewController())
+        present(nav, animated: true, completion: nil)
     }
 }
 
