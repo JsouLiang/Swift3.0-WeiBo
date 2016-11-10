@@ -19,7 +19,13 @@ enum WB_HTTPMethod {
 class WB_NetworkManager: AFHTTPSessionManager {
     // 单例：1. 静态 2. 常量 3. 闭包
     // 在第一次访问时， 执行闭包， 并将结果存储在sharedManager静态常量中
-    static let sharedManager = WB_NetworkManager()
+    static let sharedManager: WB_NetworkManager = {
+        // 实例化对象
+        let instance = WB_NetworkManager()
+        // 设置响应的反序列化支持的数据类型
+        instance.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        return instance
+    }()
     
     /// 访问令牌，所有的网络请求都基于此令牌
     var accessToken: String? // = "2.00yyFj9D3UqMzDfca7866a25aFyA8D"

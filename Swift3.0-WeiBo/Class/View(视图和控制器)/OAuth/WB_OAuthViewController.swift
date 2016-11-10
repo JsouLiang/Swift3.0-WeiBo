@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 // 通过WbView加载新浪微博授权页面
 class WB_OAuthViewController: UIViewController {
@@ -30,10 +31,13 @@ class WB_OAuthViewController: UIViewController {
         }
         let request = URLRequest(url: url)
         webView.loadRequest(request)
+        webView.delegate = self
+        webView.scrollView.isScrollEnabled = false
     }
     
     //MARK: 监听方法
-    @objc private func close() {
+    @objc fileprivate func close() {
+        SVProgressHUD.dismiss()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -44,5 +48,48 @@ class WB_OAuthViewController: UIViewController {
         "document.getElementById('passwd').value = 'WGL1129584401';"
         webView.stringByEvaluatingJavaScript(from: js)
         
+    }
+}
+
+extension WB_OAuthViewController: UIWebViewDelegate {
+    
+    /// webView 将要加载请求
+    ///
+    /// - Parameters:
+    ///   - webView:
+    ///   - request: 将要加载的请求
+    ///   - navigationType:导航类型
+    /// - Returns: 是否加载request
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        print("----\(request.url?.absoluteString)")
+        
+        // 从http://www.baidu.com 回调地址中查询code
+        if request.url?.absoluteString.hasPrefix(WN_RedirectURI) == false {
+            return true
+        }
+        
+        // 如果有code说明授权成功，否则授权失败
+        // query 就是url中 ？后面中所有部分
+        print("-----加载请求\(request.url?.query)")
+        if request.url?.query?.hasPrefix("code=") == false {    // 取消授权
+            self.close()
+            return false
+        }
+        // 从query字符串中取出授权码
+        let code = request.url?.query?.substring(from: "code=".endIndex) ?? ""
+        // 成功授权，获得授权码
+        WB_NetworkManager.sharedManager.loadAccessToken(code: code){(token) -> Void in
+            
+        }
+        return false
+    }
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        SVProgressHUD.show()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        SVProgressHUD.dismiss()
     }
 }

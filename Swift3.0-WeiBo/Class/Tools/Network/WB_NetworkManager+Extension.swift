@@ -49,3 +49,23 @@ extension WB_NetworkManager {
         }
     }
 }
+
+extension WB_NetworkManager {
+    
+    
+    func loadAccessToken(code: String, success:(_ toke: String) -> Void) {
+        let urlString = "https://api.weibo.com/oauth2/access_token"
+        
+        let params = ["client_id": WB_AppKey,
+                      "client_secret": WB_AppSecret,
+                      "grant_type": "authorization_code",
+                      "code": code,
+                      "redirect_uri": WN_RedirectURI]
+        request(method: .POST,
+                URLString: urlString,
+                paramaters: params){(json: Any?, isSuccess: Bool) -> Void in
+                    
+        }
+        
+    }
+}

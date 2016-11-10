@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Swift3.0-WeiBo/Class/View(&#x89c6;&#x56fe;&#x548c;&#x63a7;&#x5236;&#x5668;)/OAuth/WB_OAuthViewController.swift"
-            timestampString = "500453356.811848"
+            timestampString = "500456309.171709"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
