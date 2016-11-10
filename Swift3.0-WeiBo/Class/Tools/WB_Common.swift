@@ -7,6 +7,15 @@
 //
 
 import Foundation
+
+// MARK: 应用程序信息
+// 应用程序key
+let WB_AppKey = "3652816698"
+// 应用程序加密信息
+let WB_AppSecret = "cf26fbca58c9fb82f7ac11a008192da7"
+// 回调地址 - 登录完成调转的URL
+let WN_RedirectURI = "http://baidu.com"
+
 // MARK: 全局通知
 let WB_UserShouldLoginNotification = "WB_UserShouldLoginNotification";
 
