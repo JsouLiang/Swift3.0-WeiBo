@@ -40,8 +40,11 @@ extension WB_NetworkManager {
     
     /// 返回微博的未读数
     func unreadCount(complation: @escaping (_ count: Int) -> ()) {
+        guard let uid = userAccount.uid else {
+            return
+        }
         let urlString = "https://rm.api.weibo.com/2/remind/unread_count.json"
-        var params:[String: Any]?
+        let params:[String: Any] = ["uid": uid]
         tokeRequest(URLString: urlString, paramaters: params) { (json, isSuccess) in
             let dict = json as? [String: Any]
             let count = dict?["status"] as? Int
@@ -64,8 +67,8 @@ extension WB_NetworkManager {
         request(method: .POST,
                 URLString: urlString,
                 paramaters: params){(json: Any?, isSuccess: Bool) -> Void in
+                    self.userAccount.yy_modelSet(with: (json as? [String: Any]) ?? [:])
                     
         }
-        
     }
 }

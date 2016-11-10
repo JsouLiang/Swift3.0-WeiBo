@@ -28,17 +28,20 @@ class WB_NetworkManager: AFHTTPSessionManager {
     }()
     
     /// 访问令牌，所有的网络请求都基于此令牌
-    var accessToken: String? // = "2.00yyFj9D3UqMzDfca7866a25aFyA8D"
+//    var accessToken: String? // = "2.00yyFj9D3UqMzDfca7866a25aFyA8D"
+    
+    /// 用户账户的懒加载属性
+    lazy var userAccount = WB_UserAccount()
     
     var userLogon: Bool {
-        return accessToken != nil
+        return userAccount.access_token != nil
     }
     
     /// 专门用来拼接token的网络请求
     func tokeRequest(method: WB_HTTPMethod = .GET, URLString: String,
                      paramaters: [String: Any]?, complation: @escaping (Any?, Bool) -> (Void)) {
         // 处理token
-        guard let token = accessToken else {
+        guard let token = userAccount.access_token else {
             // FIXME: 发送通知，提示用户登录
             complation(nil, false)
             return
