@@ -79,8 +79,16 @@ extension WB_OAuthViewController: UIWebViewDelegate {
         // 从query字符串中取出授权码
         let code = request.url?.query?.substring(from: "code=".endIndex) ?? ""
         // 成功授权，获得授权码
-        WB_NetworkManager.sharedManager.loadAccessToken(code: code){(token) -> Void in
-            
+        WB_NetworkManager.sharedManager.loadAccessToken(code: code){ (isSuccess) -> Void in
+            if !isSuccess {
+                SVProgressHUD.showInfo(withStatus: "网络请求失败")
+            } else {
+                SVProgressHUD.showInfo(withStatus: "登录成功")
+                // 发送登录成功通知
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: WB_UserLogInSuccessNotification), object: nil)
+                // 关闭窗口
+                self.close()
+            }
         }
         return false
     }

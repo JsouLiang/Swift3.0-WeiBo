@@ -17,7 +17,7 @@ class WB_HomeViewController: WB_BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            }
+    }
 
     /// 加载数据
     override func loadData() {

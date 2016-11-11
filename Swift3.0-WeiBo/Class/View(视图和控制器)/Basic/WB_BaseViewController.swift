@@ -38,11 +38,20 @@ class WB_BaseViewController: UIViewController {
         return navigationBarItem
     }()
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
         
         WB_NetworkManager.sharedManager.userLogon ? loadData() : ()
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(userLoginSuccess),
+                                               name: NSNotification.Name(rawValue: WB_UserLogInSuccessNotification),
+                                               object: nil)
     }
     
     /// 加载数据, 不做任何实现, 具体实现由子类负责
@@ -61,6 +70,21 @@ extension WB_BaseViewController {
     
     @objc fileprivate func register() {
         
+    }
+}
+
+// MARK: - Notification
+extension WB_BaseViewController {
+    /// 登录成功处理
+    @objc fileprivate func userLoginSuccess(notify: Notification) {
+        // 将访客视图替换为内容视图
+        // 登录前左边是注册，右边是登陆
+        navigationBarItem.leftBarButtonItem = nil
+        navigationBarItem.rightBarButtonItem = nil
+        // 在调用view的getter方法时，如果view == nil， 会调用loadView方法之后会调用viewDidLoad
+        view = nil
+        // 注销通知, 避免通知被重复注册
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -95,10 +119,10 @@ extension WB_BaseViewController {
     open func setUpTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height, left: 0, bottom: tabBarController?.tabBar.bounds.height ?? 49, right: 0)
+        tableView?.scrollIndicatorInsets = tableView!.contentInset
         // 设置数据源和代理
         tableView?.delegate = self
         tableView?.dataSource = self
-        
         view.insertSubview(tableView!, belowSubview: navigationBar)
     }
     

@@ -18,5 +18,8 @@ let WN_RedirectURI = "http://baidu.com"
 
 // MARK: 全局通知
 let WB_UserShouldLoginNotification = "WB_UserShouldLoginNotification";
+// MARK: 用户登录成功通知
+let WB_UserLogInSuccessNotification = "WB_UserLogInSuccessNotification";
+
 
 

@@ -56,7 +56,7 @@ extension WB_NetworkManager {
 extension WB_NetworkManager {
     
     
-    func loadAccessToken(code: String, success:(_ toke: String) -> Void) {
+    func loadAccessToken(code: String, success: @escaping (_ isSuccess: Bool) -> Void) {
         let urlString = "https://api.weibo.com/oauth2/access_token"
         
         let params = ["client_id": WB_AppKey,
@@ -68,7 +68,10 @@ extension WB_NetworkManager {
                 URLString: urlString,
                 paramaters: params){(json: Any?, isSuccess: Bool) -> Void in
                     self.userAccount.yy_modelSet(with: (json as? [String: Any]) ?? [:])
-                    
+                    // 保存用户模型
+                    self.userAccount.saveAccount()
+                    // 完成回调
+                    success(isSuccess)
         }
     }
 }
