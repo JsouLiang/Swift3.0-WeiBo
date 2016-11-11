@@ -10,6 +10,12 @@ import UIKit
 private let accountFileName: NSString = "user_account.json"
 /// 用户账号信息
 class WB_UserAccount: NSObject {
+    
+    // 用户昵称
+    var screen_name: String?
+    // 用户头像
+    var avatar_large: String?
+
     var access_token: String?
     // 用户代号
     var uid: String?

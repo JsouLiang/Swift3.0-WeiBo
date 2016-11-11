@@ -85,7 +85,7 @@ extension WB_MainViewController {
         if notify.object != nil {
             SVProgressHUD.showInfo(withStatus: "用户登录已超时，需重新登录")
             SVProgressHUD.setDefaultMaskType(.gradient)
-            when += DispatchTime.now() + 1.5
+            when = DispatchTime.now() + 1.5
         }
         DispatchQueue.main.asyncAfter(deadline: when) {
             SVProgressHUD.setDefaultMaskType(.clear)

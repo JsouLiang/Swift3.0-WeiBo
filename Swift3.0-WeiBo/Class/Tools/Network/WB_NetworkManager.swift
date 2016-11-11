@@ -38,7 +38,7 @@ class WB_NetworkManager: AFHTTPSessionManager {
     }
     
     /// 专门用来拼接token的网络请求
-    func tokeRequest(method: WB_HTTPMethod = .GET, URLString: String,
+    func tokenRequest(method: WB_HTTPMethod = .GET, URLString: String,
                      paramaters: [String: Any]?, complation: @escaping (Any?, Bool) -> (Void)) {
         // 处理token, 程序执行过程中一般token不会为nil
         guard let token = userAccount.access_token else {
@@ -73,7 +73,7 @@ class WB_NetworkManager: AFHTTPSessionManager {
             if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                 print("token out time")
                 
-                // FIXME: 发送通知，提示用户登录
+                // 发送通知，提示用户登录
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: WB_UserShouldLoginNotification),
                                                 object: "Bad Token")
             }

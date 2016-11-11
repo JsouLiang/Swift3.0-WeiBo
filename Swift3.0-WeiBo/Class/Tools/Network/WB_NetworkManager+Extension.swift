@@ -29,7 +29,7 @@ extension WB_NetworkManager {
          
          })*/
         // 尾随闭包
-        tokeRequest(URLString: urlStr, paramaters: params){ (json, isSuccess) in
+        tokenRequest(URLString: urlStr, paramaters: params){ (json, isSuccess) in
             guard let result = json as? [String: AnyObject], let statuses = result["statuses"] else {
                 return
             }
@@ -45,7 +45,7 @@ extension WB_NetworkManager {
         }
         let urlString = "https://rm.api.weibo.com/2/remind/unread_count.json"
         let params:[String: Any] = ["uid": uid]
-        tokeRequest(URLString: urlString, paramaters: params) { (json, isSuccess) in
+        tokenRequest(URLString: urlString, paramaters: params) { (json, isSuccess) in
             let dict = json as? [String: Any]
             let count = dict?["status"] as? Int
             complation(count ?? 0)
@@ -53,8 +53,26 @@ extension WB_NetworkManager {
     }
 }
 
+// MARK: - UserInfo 加载用户信息
 extension WB_NetworkManager {
     
+    /// 加载当前用户信息
+    func loadUserInfo(complation: @escaping ([String: Any]) -> ()) {
+        guard let uid = userAccount.uid else {
+            return
+        }
+        
+        let urlString = "https://api.weibo.com/2/users/show.json"
+        let params = ["uid": uid]
+        tokenRequest(URLString: urlString,
+                paramaters: params){ (json, isSuccess) -> Void in
+                    complation(json as? [String: Any] ?? [:])
+        }
+    }
+}
+
+// MARK: - Token
+extension WB_NetworkManager {
     
     func loadAccessToken(code: String, success: @escaping (_ isSuccess: Bool) -> Void) {
         let urlString = "https://api.weibo.com/oauth2/access_token"
@@ -68,10 +86,15 @@ extension WB_NetworkManager {
                 URLString: urlString,
                 paramaters: params){(json: Any?, isSuccess: Bool) -> Void in
                     self.userAccount.yy_modelSet(with: (json as? [String: Any]) ?? [:])
-                    // 保存用户模型
-                    self.userAccount.saveAccount()
-                    // 完成回调
-                    success(isSuccess)
+                    // 加载当前用户信息
+                    self.loadUserInfo() { (info: [String: Any]) in
+                        // 使用用户信息字典，设置用户信息Model
+                        self.userAccount.yy_modelSet(with: info)
+                        // 保存用户模型
+                        self.userAccount.saveAccount()
+                        // 完成回调
+                        success(isSuccess)
+                    }
         }
     }
 }

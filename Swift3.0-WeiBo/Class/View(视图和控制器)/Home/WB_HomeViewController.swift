@@ -57,5 +57,16 @@ extension WB_HomeViewController {
     override func setUpTableView() {
         navigationBarItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, selected: #selector(WB_HomeViewController.handleAddFriendAction(barButtonItem:)))
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        setupNavTitleView()
+    }
+    
+    fileprivate func setupNavTitleView() {
+        let title = WB_NetworkManager.sharedManager.userAccount.screen_name
+        let button = WB_TitleButton(title: title)
+        navigationBarItem.titleView = button
+    }
+    
+    @objc private func clickTitleButton(button: UIButton) -> Void {
+        button.isSelected = !button.isSelected
     }
 }
