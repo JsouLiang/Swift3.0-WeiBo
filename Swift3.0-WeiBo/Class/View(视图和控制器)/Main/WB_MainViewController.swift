@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class WB_MainViewController: UITabBarController {
 
     fileprivate var timer: Timer?
@@ -80,10 +80,20 @@ extension WB_MainViewController {
         }
     }
     
-    @objc fileprivate func userLogin() {
-        // 用户登录
-        let nav = UINavigationController(rootViewController: WB_OAuthViewController())
-        present(nav, animated: true, completion: nil)
+    @objc fileprivate func userLogin(notify: Notification) {
+        var when = DispatchTime.now()
+        if notify.object != nil {
+            SVProgressHUD.showInfo(withStatus: "用户登录已超时，需重新登录")
+            SVProgressHUD.setDefaultMaskType(.gradient)
+            when += DispatchTime.now() + 1.5
+        }
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            SVProgressHUD.setDefaultMaskType(.clear)
+
+            // 用户登录
+            let nav = UINavigationController(rootViewController: WB_OAuthViewController())
+            self.present(nav, animated: true, completion: nil)
+        }
     }
 }
 
