@@ -16,7 +16,7 @@ class WB_UserAccount: NSObject {
     // 用户头像
     var avatar_large: String?
 
-    var access_token: String?
+    var access_token: String? = "2.00yyFj9D3UqMzDfca7866a25aFyA8D"
     // 用户代号
     var uid: String?
     /// 过期日期，单位秒

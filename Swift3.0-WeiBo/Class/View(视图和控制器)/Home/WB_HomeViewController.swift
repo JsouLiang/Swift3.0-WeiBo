@@ -63,6 +63,7 @@ extension WB_HomeViewController {
     fileprivate func setupNavTitleView() {
         let title = WB_NetworkManager.sharedManager.userAccount.screen_name
         let button = WB_TitleButton(title: title)
+        button.addTarget(self, action: #selector(clickTitleButton), for: .touchUpInside)
         navigationBarItem.titleView = button
     }
     
