@@ -32,6 +32,8 @@ class WB_MainViewController: UITabBarController {
         delegate = self
         setUpChildViewController()
         setupComposeButton()
+        setupTimer()
+        setupNewFeature()
         
         // 注册通知
         NotificationCenter.default.addObserver(self,
@@ -95,6 +97,43 @@ extension WB_MainViewController {
             self.present(nav, animated: true, completion: nil)
         }
     }
+}
+
+// MARK: - 新特性和欢迎页
+extension WB_MainViewController {
+    /// 设置新特性视图
+    fileprivate func setupNewFeature() {
+        // 判断是否登录
+        if !WB_NetworkManager.sharedManager.userLogon {
+            return
+        }
+        // 1. 检查版本是否更新, 如果更新显示新特性， 否则显示欢迎
+        let v = isNewVersion ? WB_NewFeatureView() : WB_WelcomeView.welcomView()
+        
+        // 3. 添加视图
+        view.addSubview(v)
+    }
+
+    // extension 中可以有计算属性，因为他不占用存储空间
+    // 构造函数最主要的功能就是为属性分配空间
+    /**
+     * 关于版本号，在Appstore中每一次升级都需要增加
+     */
+    private var isNewVersion: Bool {
+        // 去当前的版本号
+        let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        
+        // 取出保存在document中的版本号
+        let path:String = ("version" as NSString).cz_appendDocumentDir()
+        let sandboxVersion = try? String(contentsOfFile: path) 
+        
+        // 将当前版本号保存在沙盒
+        _ = try? currentVersion.write(toFile: path, atomically: true, encoding: .utf8)
+        
+        // 比较版本号
+        return currentVersion != sandboxVersion
+    }
+    
 }
 
 // extension 中不能定义属性，只能定义方法

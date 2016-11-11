@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Swift3.0-WeiBo/Class/View(&#x89c6;&#x56fe;&#x548c;&#x63a7;&#x5236;&#x5668;)/Main/WB_MainViewController.swift"
-            timestampString = "500536939.662145"
+            timestampString = "500543791.563084"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "150"
-            endingLineNumber = "150"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
             landmarkName = "controller(info:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -86,16 +86,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Swift3.0-WeiBo/Class/View(&#x89c6;&#x56fe;&#x548c;&#x63a7;&#x5236;&#x5668;)/Home/View/WB_TitleButton.swift"
-            timestampString = "500539621.141116"
+            filePath = "Swift3.0-WeiBo/Class/View(&#x89c6;&#x56fe;&#x548c;&#x63a7;&#x5236;&#x5668;)/Main/WB_MainViewController.swift"
+            timestampString = "500543844.577465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "layoutSubviews()"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
+            landmarkName = "setupNewFeature()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

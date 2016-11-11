@@ -12,6 +12,10 @@
 		4731C5181DD0BFA800AD533C /* WB_OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5171DD0BFA800AD533C /* WB_OAuthViewController.swift */; };
 		4731C5421DD45E7700AD533C /* WB_UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5411DD45E7700AD533C /* WB_UserAccount.swift */; };
 		4731C5451DD5934400AD533C /* WB_TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5441DD5934400AD533C /* WB_TitleButton.swift */; };
+		4731C5481DD5A3E300AD533C /* WB_WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5471DD5A3E300AD533C /* WB_WelcomeView.swift */; };
+		4731C54A1DD5A42D00AD533C /* WB_NewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5491DD5A42D00AD533C /* WB_NewFeatureView.swift */; };
+		4731C54C1DD5AEF800AD533C /* WB_NewFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4731C54B1DD5AEF800AD533C /* WB_NewFeatureView.xib */; };
+		4731C54E1DD5AF0600AD533C /* WB_WelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4731C54D1DD5AF0600AD533C /* WB_WelcomeView.xib */; };
 		4732DC591DCEF7BD0019B619 /* WB_Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4732DC581DCEF7BD0019B619 /* WB_Status.swift */; };
 		4732DC5B1DCEF9FE0019B619 /* WB_StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4732DC5A1DCEF9FE0019B619 /* WB_StatusListViewModel.swift */; };
 		473CACF31DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */; };
@@ -50,6 +54,10 @@
 		4731C5171DD0BFA800AD533C /* WB_OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_OAuthViewController.swift; sourceTree = "<group>"; };
 		4731C5411DD45E7700AD533C /* WB_UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_UserAccount.swift; sourceTree = "<group>"; };
 		4731C5441DD5934400AD533C /* WB_TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_TitleButton.swift; sourceTree = "<group>"; };
+		4731C5471DD5A3E300AD533C /* WB_WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_WelcomeView.swift; sourceTree = "<group>"; };
+		4731C5491DD5A42D00AD533C /* WB_NewFeatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_NewFeatureView.swift; sourceTree = "<group>"; };
+		4731C54B1DD5AEF800AD533C /* WB_NewFeatureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WB_NewFeatureView.xib; sourceTree = "<group>"; };
+		4731C54D1DD5AF0600AD533C /* WB_WelcomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WB_WelcomeView.xib; sourceTree = "<group>"; };
 		4732DC581DCEF7BD0019B619 /* WB_Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_Status.swift; sourceTree = "<group>"; };
 		4732DC5A1DCEF9FE0019B619 /* WB_StatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_StatusListViewModel.swift; sourceTree = "<group>"; };
 		473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WB_NetworkManager+Extension.swift"; sourceTree = "<group>"; };
@@ -153,6 +161,17 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		4731C5461DD5A39800AD533C /* NewFeature */ = {
+			isa = PBXGroup;
+			children = (
+				4731C5471DD5A3E300AD533C /* WB_WelcomeView.swift */,
+				4731C54D1DD5AF0600AD533C /* WB_WelcomeView.xib */,
+				4731C5491DD5A42D00AD533C /* WB_NewFeatureView.swift */,
+				4731C54B1DD5AEF800AD533C /* WB_NewFeatureView.xib */,
+			);
+			path = NewFeature;
+			sourceTree = "<group>";
+		};
 		475354791D7DAF5A00997B52 /* Class */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				4782510D1DC1E82C00E9A7EB /* main.json */,
+				4731C5461DD5A39800AD533C /* NewFeature */,
 				4782EDFD1DC0E22E00D4E9DB /* VisitorView */,
 				475354831D7DAFA700997B52 /* WB_MainViewController.swift */,
 				475354851D7DAFCE00997B52 /* WB_NavigationController.swift */,
@@ -407,6 +427,8 @@
 				47FB57CC1D56F0A300BCBF41 /* Assets.xcassets in Resources */,
 				4782510E1DC1E82C00E9A7EB /* main.json in Resources */,
 				47FB57CA1D56F0A300BCBF41 /* Main.storyboard in Resources */,
+				4731C54E1DD5AF0600AD533C /* WB_WelcomeView.xib in Resources */,
+				4731C54C1DD5AEF800AD533C /* WB_NewFeatureView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,6 +500,7 @@
 				4782EE211DC0F3B100D4E9DB /* NSString+CZHash.m in Sources */,
 				4731C5181DD0BFA800AD533C /* WB_OAuthViewController.swift in Sources */,
 				473CACF31DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift in Sources */,
+				4731C5481DD5A3E300AD533C /* WB_WelcomeView.swift in Sources */,
 				4782EE241DC0F3B100D4E9DB /* UIColor+CZAddition.m in Sources */,
 				4782EE281DC0F3B100D4E9DB /* UIViewController+CZAddition.m in Sources */,
 				4782EE261DC0F3B100D4E9DB /* UIScreen+CZAddition.m in Sources */,
@@ -491,6 +514,7 @@
 				4782EE231DC0F3B100D4E9DB /* UIButton+CZAddition.m in Sources */,
 				4731C5151DD0BDA700AD533C /* WB_Common.swift in Sources */,
 				4731C5451DD5934400AD533C /* WB_TitleButton.swift in Sources */,
+				4731C54A1DD5A42D00AD533C /* WB_NewFeatureView.swift in Sources */,
 				47080F641D819CE3003183BE /* UIBarButtonItem+Extension.swift in Sources */,
 				4782EE021DC0E36C00D4E9DB /* WB_VisitorView.swift in Sources */,
 				47B1CDC61D806C37009DA77D /* WB_HomeViewController.swift in Sources */,
