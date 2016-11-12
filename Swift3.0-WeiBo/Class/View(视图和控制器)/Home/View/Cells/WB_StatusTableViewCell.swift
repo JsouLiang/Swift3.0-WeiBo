@@ -24,6 +24,19 @@ class WB_StatusTableViewCell: UITableViewCell {
     /// 微博内容
     @IBOutlet weak var statusLabel: UILabel!
     
-
+    /// 微博视图模型
+    var statusInfo: WN_StatusViewModel? {
+        didSet {
+            self.nameLabel.text = statusInfo?.status.user?.screen_name
+            self.statusLabel.text = statusInfo?.status.text
+            // 设置会员图标
+            memberIconImageView.image = statusInfo?.memberIcon
+            // 设置vip认证图标
+            VIPIconImageView.image = statusInfo?.vipIcon
+            // 用户头像
+            iconImageView.setImage(url: statusInfo?.status.user?.profile_image_url,
+                                   placeholderImage: UIImage(named: "avatar_default_big")!, isAvatar: true)
+        }
+    }
     
 }

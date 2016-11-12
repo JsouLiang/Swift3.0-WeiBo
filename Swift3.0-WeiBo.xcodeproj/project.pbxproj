@@ -21,6 +21,8 @@
 		4731C5561DD6FD9100AD533C /* WB_StatusNormalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4731C5551DD6FD9100AD533C /* WB_StatusNormalTableViewCell.xib */; };
 		4731C5581DD7090300AD533C /* WB_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5571DD7090300AD533C /* WB_User.swift */; };
 		4731C55A1DD70F9B00AD533C /* WB_StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5591DD70F9B00AD533C /* WB_StatusViewModel.swift */; };
+		4731C55C1DD7264300AD533C /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C55B1DD7264300AD533C /* UIImageView+WebImage.swift */; };
+		4731C55E1DD7288E00AD533C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C55D1DD7288E00AD533C /* UIImage+Extension.swift */; };
 		4732DC591DCEF7BD0019B619 /* WB_Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4732DC581DCEF7BD0019B619 /* WB_Status.swift */; };
 		4732DC5B1DCEF9FE0019B619 /* WB_StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4732DC5A1DCEF9FE0019B619 /* WB_StatusListViewModel.swift */; };
 		473CACF31DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */; };
@@ -68,6 +70,8 @@
 		4731C5551DD6FD9100AD533C /* WB_StatusNormalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WB_StatusNormalTableViewCell.xib; sourceTree = "<group>"; };
 		4731C5571DD7090300AD533C /* WB_User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_User.swift; sourceTree = "<group>"; };
 		4731C5591DD70F9B00AD533C /* WB_StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_StatusViewModel.swift; sourceTree = "<group>"; };
+		4731C55B1DD7264300AD533C /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
+		4731C55D1DD7288E00AD533C /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		4732DC581DCEF7BD0019B619 /* WB_Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_Status.swift; sourceTree = "<group>"; };
 		4732DC5A1DCEF9FE0019B619 /* WB_StatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_StatusListViewModel.swift; sourceTree = "<group>"; };
 		473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WB_NetworkManager+Extension.swift"; sourceTree = "<group>"; };
@@ -220,6 +224,8 @@
 				4753548A1D7DB22600997B52 /* WeiBo-Bridge.h */,
 				4731C5141DD0BDA700AD533C /* WB_Common.swift */,
 				47080F631D819CE3003183BE /* UIBarButtonItem+Extension.swift */,
+				4731C55B1DD7264300AD533C /* UIImageView+WebImage.swift */,
+				4731C55D1DD7288E00AD533C /* UIImage+Extension.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -533,6 +539,7 @@
 				4731C55A1DD70F9B00AD533C /* WB_StatusViewModel.swift in Sources */,
 				47B1CDC81D806C3F009DA77D /* WB_MessageViewController.swift in Sources */,
 				4732DC591DCEF7BD0019B619 /* WB_Status.swift in Sources */,
+				4731C55C1DD7264300AD533C /* UIImageView+WebImage.swift in Sources */,
 				4732DC5B1DCEF9FE0019B619 /* WB_StatusListViewModel.swift in Sources */,
 				4731C5581DD7090300AD533C /* WB_User.swift in Sources */,
 				4782EE221DC0F3B100D4E9DB /* NSString+CZPath.m in Sources */,
@@ -545,6 +552,7 @@
 				4731C54A1DD5A42D00AD533C /* WB_NewFeatureView.swift in Sources */,
 				47080F641D819CE3003183BE /* UIBarButtonItem+Extension.swift in Sources */,
 				4782EE021DC0E36C00D4E9DB /* WB_VisitorView.swift in Sources */,
+				4731C55E1DD7288E00AD533C /* UIImage+Extension.swift in Sources */,
 				47B1CDC61D806C37009DA77D /* WB_HomeViewController.swift in Sources */,
 				4731C5421DD45E7700AD533C /* WB_UserAccount.swift in Sources */,
 			);

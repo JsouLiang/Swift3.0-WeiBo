@@ -48,7 +48,7 @@ extension WB_HomeViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! WB_StatusTableViewCell
-        cell.statusLabel.text = listViewModel.statusList[indexPath.row].text
+        cell.statusInfo = listViewModel.statusList[indexPath.row]
 
         return cell
     }
