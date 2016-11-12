@@ -28,7 +28,7 @@ private let maxPullUpTryTimes = 3
  */
 class WB_StatusListViewModel {
     /// 微博视图模型数组懒加载
-    lazy var statusList = [WN_StatusViewModel]()
+    lazy var statusList = [WB_StatusViewModel]()
    
     /// 上拉刷新错误次数
     private var pullupErrorTime = 0
@@ -64,8 +64,8 @@ class WB_StatusListViewModel {
                 return
             }
             
-           let viewModelArray = array.map({ (status) -> WN_StatusViewModel in
-                return WN_StatusViewModel(status: status)
+           let viewModelArray = array.map({ (status) -> WB_StatusViewModel in
+                return WB_StatusViewModel(status: status)
             })
             
             if pullUp {

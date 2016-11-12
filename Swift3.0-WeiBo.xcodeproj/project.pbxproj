@@ -23,6 +23,7 @@
 		4731C55A1DD70F9B00AD533C /* WB_StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5591DD70F9B00AD533C /* WB_StatusViewModel.swift */; };
 		4731C55C1DD7264300AD533C /* UIImageView+WebImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C55B1DD7264300AD533C /* UIImageView+WebImage.swift */; };
 		4731C55E1DD7288E00AD533C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C55D1DD7288E00AD533C /* UIImage+Extension.swift */; };
+		4731C5601DD732C300AD533C /* WB_ToolBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C55F1DD732C300AD533C /* WB_ToolBarView.swift */; };
 		4732DC591DCEF7BD0019B619 /* WB_Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4732DC581DCEF7BD0019B619 /* WB_Status.swift */; };
 		4732DC5B1DCEF9FE0019B619 /* WB_StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4732DC5A1DCEF9FE0019B619 /* WB_StatusListViewModel.swift */; };
 		473CACF31DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */; };
@@ -72,6 +73,7 @@
 		4731C5591DD70F9B00AD533C /* WB_StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_StatusViewModel.swift; sourceTree = "<group>"; };
 		4731C55B1DD7264300AD533C /* UIImageView+WebImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+WebImage.swift"; sourceTree = "<group>"; };
 		4731C55D1DD7288E00AD533C /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		4731C55F1DD732C300AD533C /* WB_ToolBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_ToolBarView.swift; sourceTree = "<group>"; };
 		4732DC581DCEF7BD0019B619 /* WB_Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_Status.swift; sourceTree = "<group>"; };
 		4732DC5A1DCEF9FE0019B619 /* WB_StatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_StatusListViewModel.swift; sourceTree = "<group>"; };
 		473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WB_NetworkManager+Extension.swift"; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				4731C5441DD5934400AD533C /* WB_TitleButton.swift */,
+				4731C55F1DD732C300AD533C /* WB_ToolBarView.swift */,
 				4731C5521DD6FCF100AD533C /* Cells */,
 			);
 			path = View;
@@ -554,6 +557,7 @@
 				4782EE021DC0E36C00D4E9DB /* WB_VisitorView.swift in Sources */,
 				4731C55E1DD7288E00AD533C /* UIImage+Extension.swift in Sources */,
 				47B1CDC61D806C37009DA77D /* WB_HomeViewController.swift in Sources */,
+				4731C5601DD732C300AD533C /* WB_ToolBarView.swift in Sources */,
 				4731C5421DD45E7700AD533C /* WB_UserAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

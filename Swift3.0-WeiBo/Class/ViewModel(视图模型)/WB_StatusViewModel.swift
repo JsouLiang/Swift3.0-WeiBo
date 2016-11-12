@@ -14,13 +14,19 @@ import Foundation
  * 1. 遵循CustomStringConvertible协议
  * 2. 实现description计算属性
  */
-class WN_StatusViewModel: CustomStringConvertible {
+class WB_StatusViewModel: CustomStringConvertible {
     
     /// 微博模型
     var status: WB_Status
     /// 会员图标
     var memberIcon: UIImage?
     var vipIcon: UIImage?
+    /// 转发文字
+    var retweetedStr: String?
+    /// 评论文字
+    var commentStr: String?
+    /// 点赞文字
+    var likeStr: String?
     
     init(status: WB_Status) {
         self.status = status
@@ -42,9 +48,31 @@ class WN_StatusViewModel: CustomStringConvertible {
         default:
             break
         }
+        
+        // 底部栏信息
+        retweetedStr = countString(count: status.reposts_count, descrpition: "转发")
+        commentStr = countString(count: status.comments_count, descrpition: "评论")
+        likeStr = countString(count: status.attitudes_count, descrpition: "赞")
     }
     
     var description: String {
         return status.description
     }
+    
+    /// 将传入的数子与description拼接
+    ///
+    /// - Parameters:
+    ///   - count: 数字
+    ///   - descrpition: 描述字符串
+    /// - Returns: 拼接后字符串
+    private func countString(count: Int, descrpition: String) -> String {
+        if count == 0 {
+            return descrpition
+        } else if count < 10000 {
+            return "\(count)" + descrpition
+        } else {
+            return String(format: "%.2f万", Double(count/10000))
+        }
+    }
+
 }

@@ -24,8 +24,9 @@ class WB_StatusTableViewCell: UITableViewCell {
     /// 微博内容
     @IBOutlet weak var statusLabel: UILabel!
     
+    @IBOutlet weak var bottomToolBar: WB_ToolBarView!
     /// 微博视图模型
-    var statusInfo: WN_StatusViewModel? {
+    var statusInfo: WB_StatusViewModel? {
         didSet {
             self.nameLabel.text = statusInfo?.status.user?.screen_name
             self.statusLabel.text = statusInfo?.status.text
@@ -36,6 +37,7 @@ class WB_StatusTableViewCell: UITableViewCell {
             // 用户头像
             iconImageView.setImage(url: statusInfo?.status.user?.profile_image_url,
                                    placeholderImage: UIImage(named: "avatar_default_big")!, isAvatar: true)
+            self.bottomToolBar.viewModel = statusInfo
         }
     }
     

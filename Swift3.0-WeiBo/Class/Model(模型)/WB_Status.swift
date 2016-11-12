@@ -17,9 +17,16 @@ class WB_Status: NSObject {
     var text: String?
     /// 微博的用户
     var user: WB_User?
+    /// 转发数
+    var reposts_count: Int = 0
+    /// 评论数
+    var comments_count: Int = 0
+    /// 点赞数
+    var attitudes_count: Int = 0
     
     /// 重写description的计算型属性
     override var description: String {
         return yy_modelDescription()
     }
+    
 }
