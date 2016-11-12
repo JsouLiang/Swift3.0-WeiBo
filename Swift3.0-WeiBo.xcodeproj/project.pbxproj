@@ -20,6 +20,7 @@
 		4731C5541DD6FD7500AD533C /* WB_StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5531DD6FD7500AD533C /* WB_StatusTableViewCell.swift */; };
 		4731C5561DD6FD9100AD533C /* WB_StatusNormalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4731C5551DD6FD9100AD533C /* WB_StatusNormalTableViewCell.xib */; };
 		4731C5581DD7090300AD533C /* WB_User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5571DD7090300AD533C /* WB_User.swift */; };
+		4731C55A1DD70F9B00AD533C /* WB_StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4731C5591DD70F9B00AD533C /* WB_StatusViewModel.swift */; };
 		4732DC591DCEF7BD0019B619 /* WB_Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4732DC581DCEF7BD0019B619 /* WB_Status.swift */; };
 		4732DC5B1DCEF9FE0019B619 /* WB_StatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4732DC5A1DCEF9FE0019B619 /* WB_StatusListViewModel.swift */; };
 		473CACF31DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */; };
@@ -66,6 +67,7 @@
 		4731C5531DD6FD7500AD533C /* WB_StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_StatusTableViewCell.swift; sourceTree = "<group>"; };
 		4731C5551DD6FD9100AD533C /* WB_StatusNormalTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WB_StatusNormalTableViewCell.xib; sourceTree = "<group>"; };
 		4731C5571DD7090300AD533C /* WB_User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_User.swift; sourceTree = "<group>"; };
+		4731C5591DD70F9B00AD533C /* WB_StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_StatusViewModel.swift; sourceTree = "<group>"; };
 		4732DC581DCEF7BD0019B619 /* WB_Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_Status.swift; sourceTree = "<group>"; };
 		4732DC5A1DCEF9FE0019B619 /* WB_StatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WB_StatusListViewModel.swift; sourceTree = "<group>"; };
 		473CACF21DC38BCE00F6F507 /* WB_NetworkManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WB_NetworkManager+Extension.swift"; sourceTree = "<group>"; };
@@ -286,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				4732DC5A1DCEF9FE0019B619 /* WB_StatusListViewModel.swift */,
+				4731C5591DD70F9B00AD533C /* WB_StatusViewModel.swift */,
 			);
 			path = "ViewModel(视图模型)";
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				4782EE241DC0F3B100D4E9DB /* UIColor+CZAddition.m in Sources */,
 				4782EE281DC0F3B100D4E9DB /* UIViewController+CZAddition.m in Sources */,
 				4782EE261DC0F3B100D4E9DB /* UIScreen+CZAddition.m in Sources */,
+				4731C55A1DD70F9B00AD533C /* WB_StatusViewModel.swift in Sources */,
 				47B1CDC81D806C3F009DA77D /* WB_MessageViewController.swift in Sources */,
 				4732DC591DCEF7BD0019B619 /* WB_Status.swift in Sources */,
 				4732DC5B1DCEF9FE0019B619 /* WB_StatusListViewModel.swift in Sources */,

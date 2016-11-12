@@ -15,7 +15,8 @@ class WB_Status: NSObject {
     var id: Int64 = 0
     /// 微博信息内容
     var text: String?
-    
+    /// 微博的用户
+    var user: WB_User?
     
     /// 重写description的计算型属性
     override var description: String {
