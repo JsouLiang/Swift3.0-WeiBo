@@ -17,6 +17,7 @@ class WB_HomeViewController: WB_BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        loadData()
     }
 
     /// 加载数据
@@ -46,8 +47,9 @@ extension WB_HomeViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-//        cell.textLabel?.text = listViewModel.statusList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! WB_StatusTableViewCell
+        cell.statusLabel.text = listViewModel.statusList[indexPath.row].text
+
         return cell
     }
 }
@@ -55,8 +57,15 @@ extension WB_HomeViewController {
 // MARK: - 设置界面
 extension WB_HomeViewController {
     override func setUpTableView() {
+        super.setUpTableView()
         navigationBarItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, selected: #selector(WB_HomeViewController.handleAddFriendAction(barButtonItem:)))
-        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView?.register(UINib.init(nibName: "WB_StatusNormalTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        // 设置行高
+        tableView?.rowHeight = UITableViewAutomaticDimension
+        tableView?.estimatedRowHeight = 300
+        // 取消分割线
+        tableView?.separatorStyle = .none
+        
         setupNavTitleView()
     }
     

@@ -116,7 +116,7 @@ extension WB_BaseViewController {
     
     /// 数据展示视图
     /// 子类并不需要知道用户登录之前的逻辑，所以把配置访客视图的逻辑setupUI改成私有方法， 子类只处理用户登录后的设置tableView的操作
-    open func setUpTableView() {
+    func setUpTableView() {
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView?.contentInset = UIEdgeInsets(top: navigationBar.bounds.height, left: 0, bottom: tabBarController?.tabBar.bounds.height ?? 49, right: 0)
         tableView?.scrollIndicatorInsets = tableView!.contentInset
