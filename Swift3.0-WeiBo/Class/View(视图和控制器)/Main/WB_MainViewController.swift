@@ -108,7 +108,7 @@ extension WB_MainViewController {
             return
         }
         // 1. 检查版本是否更新, 如果更新显示新特性， 否则显示欢迎
-        let v = isNewVersion ? WB_NewFeatureView() : WB_WelcomeView.welcomView()
+        let v = isNewVersion ? WB_NewFeatureView.newfeature() : WB_WelcomeView.welcomView()
         
         // 3. 添加视图
         view.addSubview(v)
@@ -234,6 +234,10 @@ extension WB_MainViewController: UITabBarControllerDelegate {
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1){
                 vc.loadData()
             }
+            
+            // 清除tabbarItem badgeNumber
+            vc.tabBarItem.badgeValue = nil
+            UIApplication.shared.applicationIconBadgeNumber = 0
         }
         return !viewController.isMember(of: UIViewController.self)
     }

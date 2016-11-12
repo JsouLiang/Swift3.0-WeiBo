@@ -35,9 +35,13 @@ class WB_WelcomeView: UIView {
         super.didMoveToWindow()
         
         iconViewTopConstraint.constant = 100
-        UIView.animate(withDuration: 1.5){
-            self.layoutIfNeeded()
-            self.nameLabel.alpha = 1.0
-        }
+
+        UIView.animate(withDuration: 1.5,
+                       animations: {
+                        self.layoutIfNeeded()
+                        self.nameLabel.alpha = 1.0
+        }, completion: {(finish: Bool) -> Void in
+            self.removeFromSuperview()
+        })
     }
 }
